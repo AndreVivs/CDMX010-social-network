@@ -10,9 +10,6 @@ const routes = {
     '/contact' : contact,
     '/about' : about
   };
-/*const home = document.getElementById("home");
-const about = document.getElementById("about");
-const contact = document.getElementById("contact");*/
 
 const rootDiv = document.getElementById('root');
 rootDiv.innerHTML = routes[window.location.pathname];
@@ -27,16 +24,27 @@ const onNavigate = (pathname) => {
     rootDiv.innerHTML = routes[pathname]
 }
 
-/*home.addEventListener("click", function() {
-  onNavigate('/home')
-})
-about.addEventListener("click",onNavigate('/about'))
-contact.addEventListener("click",onNavigate('/contact'))*/
-
-console.log(onNavigate);
-
 window.onpopstate = () => {
     rootDiv.innerHTML = routes[window.location.pathname]
   }
 
   window.onNavigate = onNavigate;
+
+  const h = document.getElementById("home");
+  const a = document.getElementById("about");
+  const c = document.getElementById("contact");
+
+h.addEventListener("click", (e) => {
+  e.preventDefault();
+  onNavigate('/')
+});
+
+a.addEventListener("click", (e) => {
+  e.preventDefault();
+  onNavigate('/about')
+});
+
+c.addEventListener("click", (e) => {
+  e.preventDefault();
+  onNavigate('/contact')
+});
