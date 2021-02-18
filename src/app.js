@@ -1,14 +1,14 @@
 //Contiene toda la lógica del enrutamiento
 import {home} from "./home.js"
-import {about} from "./about.js"
-import {contact} from "./contact.js"
+import {create} from "./create.js"
+import {enter} from "./enter.js"
 
 console.log("holis crayolis")
 
 const routes = {
     '/' : home,
-    '/contact' : contact,
-    '/about' : about
+    '/enter' : enter,
+    '/create' : create
   };
 
 const rootDiv = document.getElementById('root');
@@ -31,20 +31,20 @@ window.onpopstate = () => {
   window.onNavigate = onNavigate;
 
   const h = document.getElementById("home");
-  const a = document.getElementById("about");
-  const c = document.getElementById("contact");
+  const createButton = document.getElementById("create");
+  const enterButton = document.getElementById("enter");
 
 h.addEventListener("click", (e) => {
-  e.preventDefault();
+  //e.preventDefault();
   onNavigate('/')
 });
 
-a.addEventListener("click", (e) => {
-  e.preventDefault();
-  onNavigate('/about')
+createButton.addEventListener("click", (e) => {
+  //e.preventDefault();
+  onNavigate('/create')
 });
 
-c.addEventListener("click", (e) => {
-  e.preventDefault();
-  onNavigate('/contact')
+enterButton.addEventListener("click", (e) => {
+  //e.preventDefault();
+  onNavigate('/enter')
 });
