@@ -6,7 +6,6 @@ export const myFunction = () => {
 
 };
 
-
 //the first function
 export const home = (`
   <div class='home'>
@@ -15,8 +14,6 @@ export const home = (`
   <button id='old'>Entrar</button>
   </div>
   `);
-
-
 
 
 //this is insert with one promisse
