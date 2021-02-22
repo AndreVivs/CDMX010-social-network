@@ -27,24 +27,27 @@ const onNavigate = (pathname) => {
 window.onpopstate = () => {
     rootDiv.innerHTML = routes[window.location.pathname]
   }
-
+// console.log("esto es onNavigate", onNavigate())
   window.onNavigate = onNavigate;
 
   const h = document.getElementById("home");
   const createButton = document.getElementById("create");
   const enterButton = document.getElementById("enter");
 
-h.addEventListener("click", (e) => {
+h.addEventListener("DOMContainerLoaded", (e) => {
   //e.preventDefault();
   onNavigate('/')
+  window.onpopstate()
 });
 
 createButton.addEventListener("click", (e) => {
   //e.preventDefault();
   onNavigate('/create')
+  window.onpopstate()
 });
 
 enterButton.addEventListener("click", (e) => {
   //e.preventDefault();
   onNavigate('/enter')
+  window.onpopstate()
 });
