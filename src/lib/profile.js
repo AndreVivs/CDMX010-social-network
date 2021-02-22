@@ -1,4 +1,3 @@
-
 //This is the profile
 export const profile = () => {
     let html4 =`

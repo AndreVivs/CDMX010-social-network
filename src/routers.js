@@ -29,6 +29,3 @@ window.onpopstate = () => {
   }
 
 rootDiv.innerHTML =routes[window.location.pathname];
-
-
-

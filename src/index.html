@@ -7,10 +7,29 @@
   <title>JALO</title>
 </head>
 <body>
-  <script type="module" src="routers.js"></script>
+  <!--script type="module" src="routers.js"></script>
   <script type="module" src="main.js"></script>
   <script type="module" src="model.js"></script>
-  <div id="root"></div>
+  <div id="root"></div-->
+
+  <h1>Registro</h1>
+  
+    <input type="email" id="email" placeholder="e-mail"/>
+    <input type="password" id="password" placeholder="password"/>
+    <button onclick="registrarse()">Enviar</button>
+  
+  <h1>Login</h1>
+    <input type="email" id="emailLog" placeholder="e-mail"/>
+    <input type="password" id="passwordLog" placeholder="password"/>
+    <button onclick="acceso()">Entrar</button>
+
+    <h1>Google</h1>
+    <button onclick="loginGoogle()">Google</button>
+
+  <h1 id="login"></h1>
+
+<script type="module" src="main.js"></script>
+<div id="root"></div>   
 
   <!-- TODO ESTO ES LA INSTALACION DE FIREBASE-->
   <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -34,8 +53,11 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-          
+
+
 </script>
+          
+<script src="lib/login.js"> </script>
 
 </body>
 </html>
