@@ -7,14 +7,9 @@
   <title>JALO</title>
 </head>
 <body>
-  <!--script type="module" src="routers.js"></script>
-  <script type="module" src="main.js"></script>
-  <script type="module" src="model.js"></script>
-  <div id="root"></div-->
-<span class="probando">probando los estilos</span>
-  <h1>Registro</h1>
   
-    <input class="probando" type="email" id="email" placeholder="e-mail"/>
+  <h1>Registro</h1>
+    <input type="email" id="email" placeholder="e-mail"/>
     <input type="password" id="password" placeholder="password"/>
     <button onclick="registrarse()">Enviar</button>
   
@@ -23,7 +18,7 @@
     <input type="password" id="passwordLog" placeholder="password"/>
     <button onclick="acceso()">Entrar</button>
 
-    <h1>Google</h1>
+  <h1>Google</h1>
     <button onclick="loginGoogle()">Google</button>
 
   <h1 id="login"></h1>
@@ -38,26 +33,10 @@
   <!-- TODO: Add SDKs for Firebase products that you want to use
   https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-analytics.js"></script>
-  <script>
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  var firebaseConfig = {
-    apiKey: "AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8",
-    authDomain: "jaloredsocial.firebaseapp.com",
-    projectId: "jaloredsocial",
-    storageBucket: "jaloredsocial.appspot.com",
-    messagingSenderId: "438968128013",
-    appId: "1:438968128013:web:9d1b47242a6f58c825bb44",
-    measurementId: "G-8FRZGM62BF"
-    };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-
-
+ 
 </script>
-          
+<script src="model.js"> </script>         
 <script src="lib/login.js"> </script>
 
+
 </body>
-</html>
