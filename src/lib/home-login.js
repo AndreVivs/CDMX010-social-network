@@ -1,4 +1,3 @@
-
 export const myFunction2 = () => {
   // aqui tu codigo
   console.log('Hola mundotito!');

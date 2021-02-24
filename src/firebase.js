@@ -1,4 +1,3 @@
-
 var firebaseConfig = {
   apiKey: "AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8",
   authDomain: "jaloredsocial.firebaseapp.com",
@@ -20,10 +19,9 @@ export function registrarse (){
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((user) => {
       // Signed in 
-    //   if (result.user.emailVerified) {
-    //       onNavigate('/wall');
-      
-    // } else {
+           onNavigate('/wall');
+            
+    // else {
     //     showModals(noVerification);
 
     //     firebase.auth().signOut();
