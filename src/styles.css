@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
+body {
+    margin: 0%;
+    padding: 0%;
+    /*background: #890E40;*/
+};
+
+/*@media only screen and (max-width: 360px) {
+    #home {
+        background-color: red;
+        display: flex;
+        flex-direction: column; 
+        width: 360px;
+        min-height: 640px;
+    }
+}*/
+
+
+
+element.style {}
+div.home {
+    background: #890E40;
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    min-height: 640px;
+    font-family: 'Comfortaa', cursive;
+};
+
+element.style {}
+.logo {
+    padding: 29% 20%;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    width: 168px;
+    height: 115px;
+}
+
+element.style {}
+.flexCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+        padding: 0% 5% 26% 24%;
+    margin: 0% 5% 0% 0%;
+}
+
+element.style {} 
+button.buttons {
+    background: #FF723F;
+    border-radius: 24%;
+    width: 119px;
+    height: 36px;
+    color: #EAEAEA;
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+    font-family: 'Comfortaa', cursive;
+    font-size: medium;
+    border: thin;
+    margin: 4% 3%;  
+};
+
+element.style {}
+.theLogin {
+    background-image: url("assets/login.png");
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    min-height: 640px;
+    font-family: 'Comfortaa', cursive;
+}
+
+element.style {}
+.logo2 {
+    padding: 12% 27%;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    width: 42%;
+    height: 115px;
+}
+
+element.style {}
+h2 {
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    color: #eaeaea;
+    font-size: large;
+    padding: 0% 13% 0% 0%;
+}
+
+element.style {}
+.formule {
+    display: flex;
+    flex-direction: column;
+    margin: 0%;
+    width: 73%;
+    padding: 5% 0% 0% 6%;
+}
+
+element.style {}
+h3 {
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    color: #eaeaea;
+}
+
+element.style {}
+.flexCenter2 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3%;
+};
+
+element.style {}
+.formLogin {
+    display: flex;
+    text-align: center;
+    border-radius: 20%;
+    border: #5A1846;
+    background: #5A1846;
+    color: #eaeaea;
+    font-family: 'Comfortaa', cursive;
+    font-size: medium;
+    margin: 2% 7%;
+};
+
+element.style {} 
+button.buttons2 {
+    background: #FF723F;
+    border-radius: 24%;
+    width: 122px;
+    height: 34px;
+    color: #EAEAEA;
+    display: flex;
+    justify-content: center;
+    padding: 3% 0% 0% 1%;
+    font-family: 'Comfortaa', cursive;
+    font-size: medium;
+    border: thin;
+    margin: 0% 25%;
+};
+
+element.style {}
+.homeLogin {
+    background-image: url("assets/login.png");
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    min-height: 640px;
+    font-family: 'Comfortaa', cursive;
+}
+
+element.style {}
+.flexCenter3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0% 2% 26% 4%;
+    margin: 0% 5% 0% 3%;
+};
+
+element.style {}
+.formLogin2 {
+    display: flex;
+    text-align: center;
+    border-radius: 20%;
+    border: #5A1846;
+    background: #5A1846;
+    color: #eaeaea;
+    font-family: 'Comfortaa', cursive;
+    font-size: medium;
+    margin: 2% 7%;
+};
+
+element.style {} 
+button.buttons3 {
+    background: #FF723F;
+    border-radius: 24%;
+    width: 122px;
+    height: 34px;
+    color: #EAEAEA;
+    display: flex;
+    justify-content: center;
+    padding: 3% 0% 0% 1%;
+    font-family: 'Comfortaa', cursive;
+    font-size: medium;
+    border: thin;
+    margin: 0% 25%;
+};
+
+element.style {}
+.logo2 {
+    padding: 22% 20%;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    width: 168px;
+    height: 115px;
+}
+
+element.style {}
+.google {
+    padding: 13% 40%;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    width: 54px;
+    height: 40px;
+}
