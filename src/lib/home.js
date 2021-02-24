@@ -9,6 +9,7 @@ export const home = () => `
   <div class='home'>
     <div class='logo'>
       <img src='assets/logo-home.png'>
+      <img src='assets/avatar.png'>
     </div>
     <form class='flexCenter'>
       <button id='newUser' class='buttons'>crear</button>

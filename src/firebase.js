@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+import { onNavigate } from './routers.js';
+
+>>>>>>> a16a586b34eba42f8ac27f06a878db6067095d32
 var firebaseConfig = {
   apiKey: "AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8",
   authDomain: "jaloredsocial.firebaseapp.com",
@@ -17,11 +22,20 @@ export function registrarse (){
   //alert("email="+email+" password="+password);
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
+<<<<<<< HEAD
     .then((user) => {
       // Signed in 
            onNavigate('/wall');
             
     // else {
+=======
+    .then((result) => {
+      //Signed in 
+      
+          onNavigate('/wall');
+      
+    // } else {
+>>>>>>> a16a586b34eba42f8ac27f06a878db6067095d32
     //     showModals(noVerification);
 
     //     firebase.auth().signOut();
@@ -32,7 +46,7 @@ export function registrarse (){
       // ..
       alert(errorMessage, 4000);
     })
-};
+  };
     
 
 // firebase.auth().onAuthStateChanged((user) => {

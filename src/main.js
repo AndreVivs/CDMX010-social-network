@@ -45,7 +45,6 @@ const buttonLogin = () => {
         e.preventDefault();
         console.log('lo que sea');
         registrarse();
-        onNavigate('/wall');
     });
 };
 

@@ -214,3 +214,118 @@ element.style {}
     width: 54px;
     height: 40px;
 }
+
+element.style {}
+.wall {
+    background:  #EAEAEA;
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    min-height: 640px;
+    font-family: 'Comfortaa', cursive;
+}
+
+element.style {}
+.head {
+    display: flex;
+    justify-content: space-around;
+    background: #5A1846;
+    margin: 0%;
+    width: 360px;
+    height: 73px;
+};
+
+element.style {}
+.createPublication {
+    display: flex;
+    justify-content: center;
+    width: 135%;
+    height: 100%;
+};
+
+element.style {}
+.flexCenter4 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 135%;
+    padding: 5%;
+    margin: 0%;
+};
+
+element.style {}
+#newPublication {
+    display: flex;
+    justify-content: center;
+    width: 63%;
+    height: 30%;
+};
+
+element.style {} 
+button.hold {
+    background: #FF723F;
+    border-radius: 24%;
+    width: 122px;
+    height: 34px;
+    color: #EAEAEA;
+    display: flex;
+    justify-content: center;
+    padding: 2% 0% 0% 1%;
+    font-family: 'Comfortaa', cursive;
+    font-size: medium;
+    border: thin;
+    margin: 3% 34%;
+};
+
+element.style {}
+.flexCenter5 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0% 5% 1% 5%;
+    margin: 0% 6% 0% 4%;
+};
+
+
+element.style {}
+.publication {
+    display: flex;
+    justify-content: center;
+    padding: 3%;
+};
+
+element.style {}
+#avatarPublication {
+    display: flex;
+    justify-content: center;
+    background-image: url(assets/avatar-publication.png);
+    padding: 9%;
+    margin: 0% 81% 0% 0%;
+};
+
+element.style {}
+.alreadyPublicated {
+    display: flex;
+    justify-content: center;
+    padding: 8%;
+};
+
+element.style {}
+#enviaja {
+    display: flex;
+    justify-content: center;
+    padding: 8.7%;
+    background-image: url(assets/enaviona.png);
+    width: 0%;
+};
+
+element.style {}
+#desenviaja {
+    display: flex;
+    justify-content: center;
+    padding: 8.7%;
+    background-image: url(assets/desaviona.png);
+    width: 0%;
+};
+
+
