@@ -4,7 +4,7 @@ firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
-      var uid = user.uid;
+      let uid = user.uid;
       // ...
       document.getElementById("login").innerHTML="Logeado "+user.email;
       console.log(user);
@@ -17,8 +17,8 @@ firebase.auth().onAuthStateChanged((user) => {
   
   
   function registrarse (){
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
     //alert("email="+email+" password="+password);
   
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -27,16 +27,16 @@ firebase.auth().onAuthStateChanged((user) => {
         // ...
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        let errorCode = error.code;
+        let errorMessage = error.message;
         // ..
         alert(errorMessage);
       });
   }
   
   function acceso (){
-    var emailLog = document.getElementById('emailLog').value;
-    var passwordLog = document.getElementById('passwordLog').value;
+    let emailLog = document.getElementById('emailLog').value;
+    let passwordLog = document.getElementById('passwordLog').value;
     //alert("email="+email+" password="+password);
     firebase.auth().signInWithEmailAndPassword(emailLog, passwordLog)
       .then((user) => {
@@ -44,8 +44,8 @@ firebase.auth().onAuthStateChanged((user) => {
         // ...
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        let errorCode = error.code;
+        let errorMessage = error.message;
         alert(errorMessage);
       });
   }
@@ -57,21 +57,21 @@ firebase.auth().onAuthStateChanged((user) => {
   .signInWithPopup(provider)
   .then((result) => {
     /** @type {firebase.auth.OAuthCredential} */
-    var credential = result.credential;
+    let credential = result.credential;
 
     // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = credential.accessToken;
+    let token = credential.accessToken;
     // The signed-in user info.
-    var user = result.user;
+    let user = result.user;
     // ...
   }).catch((error) => {
     // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
+    let errorCode = error.code;
+    let errorMessage = error.message;
     // The email of the user's account used.
-    var email = error.email;
+    let email = error.email;
     // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
+    let credential = error.credential;
     // ...
   });
 
@@ -120,7 +120,7 @@ firebase.auth().onAuthStateChanged((user) => {
 
 //faltan las promesas
   
-var firebaseConfig = {
+let firebaseConfig = {
     apiKey: "AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8",
     authDomain: "jaloredsocial.firebaseapp.com",
     projectId: "jaloredsocial",
@@ -137,7 +137,7 @@ var firebaseConfig = {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
-      var uid = user.uid;
+      let uid = user.uid;
       // ...
       document.getElementById("login").innerHTML="Logeado "+user.email;
       console.log(user);
@@ -150,8 +150,8 @@ var firebaseConfig = {
   
   
   function enviar (){
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
     //alert("email="+email+" password="+password);
   
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -160,16 +160,16 @@ var firebaseConfig = {
         // ...
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        let errorCode = error.code;
+        let errorMessage = error.message;
         // ..
         alert(errorMessage);
       });
   }
   
   function acceso (){
-    var emailLog = document.getElementById('emailLog').value;
-    var passwordLog = document.getElementById('passwordLog').value;
+    let emailLog = document.getElementById('emailLog').value;
+    let passwordLog = document.getElementById('passwordLog').value;
     //alert("email="+email+" password="+password);
     firebase.auth().signInWithEmailAndPassword(emailLog, passwordLog)
       .then((user) => {
@@ -177,8 +177,8 @@ var firebaseConfig = {
         // ...
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        let errorCode = error.code;
+        let errorMessage = error.message;
         alert(errorMessage);
       });
   }

@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-=======
-import { onNavigate } from './routers.js';
+import {onNavigate} from "./routers.js";
 
->>>>>>> a16a586b34eba42f8ac27f06a878db6067095d32
-var firebaseConfig = {
+let firebaseConfig = {
   apiKey: "AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8",
   authDomain: "jaloredsocial.firebaseapp.com",
   projectId: "jaloredsocial",
@@ -15,45 +12,35 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-
 export function registrarse (){
-  var email = document.getElementById('email').value;
-  var password = document.getElementById('password').value;
+  let email = document.getElementById('email').value;
+  let password = document.getElementById('password').value;
   //alert("email="+email+" password="+password);
 
   firebase.auth().createUserWithEmailAndPassword(email, password)
-<<<<<<< HEAD
     .then((user) => {
       // Signed in 
            onNavigate('/wall');
             
     // else {
-=======
-    .then((result) => {
-      //Signed in 
-      
-          onNavigate('/wall');
-      
-    // } else {
->>>>>>> a16a586b34eba42f8ac27f06a878db6067095d32
     //     showModals(noVerification);
 
     //     firebase.auth().signOut();
     })
     .catch((error) => {
         console.log(error);
-      var errorMessage = error.message;
+      let errorMessage = error.message;
       // ..
       alert(errorMessage, 4000);
     })
-  };
+};
     
 
 // firebase.auth().onAuthStateChanged((user) => {
 //   if (user) {
 //     // User is signed in, see docs for a list of available properties
 //     // https://firebase.google.com/docs/reference/js/firebase.User
-//     var uid = user.uid;
+//     let uid = user.uid;
 //     // ...
 //     document.getElementById("loginStatus").innerHTML="Logeado "+user.email;
 //     console.log(user);
@@ -68,8 +55,8 @@ export function registrarse (){
 
 
 // export function acceso (){
-//   var emailLog = document.getElementById('emailLog').value;
-//   var passwordLog = document.getElementById('passwordLog').value;
+//   let emailLog = document.getElementById('emailLog').value;
+//   let passwordLog = document.getElementById('passwordLog').value;
 //   //alert("email="+email+" password="+password);
 //   firebase.auth().signInWithEmailAndPassword(emailLog, passwordLog)
 //     .then((user) => {
@@ -77,8 +64,8 @@ export function registrarse (){
 //       // ...
 //     })
 //     .catch((error) => {
-//       var errorCode = error.code;
-//       var errorMessage = error.message;
+//       let errorCode = error.code;
+//       let errorMessage = error.message;
 //       alert(errorMessage);
 //     });
 // }
@@ -90,21 +77,21 @@ export function registrarse (){
 // .signInWithPopup(provider)
 // .then((result) => {
 //   /** @type {firebase.auth.OAuthCredential} */
-//   var credential = result.credential;
+//   let credential = result.credential;
 
 //   // This gives you a Google Access Token. You can use it to access the Google API.
-//   var token = credential.accessToken;
+//   let token = credential.accessToken;
 //   // The signed-in user info.
-//   var user = result.user;
+//   let user = result.user;
 //   // ...
 // }).catch((error) => {
 //   // Handle Errors here.
-//   var errorCode = error.code;
-//   var errorMessage = error.message;
+//   let errorCode = error.code;
+//   let errorMessage = error.message;
 //   // The email of the user's account used.
-//   var email = error.email;
+//   let email = error.email;
 //   // The firebase.auth.AuthCredential type that was used.
-//   var credential = error.credential;
+//   let credential = error.credential;
 //   // ...
 // });
 
