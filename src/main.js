@@ -1,5 +1,7 @@
 import { onNavigate } from './routers.js';
-import { register, loginGoogle, accessJalo } from './firebase.js';
+import { register, loginGoogle, accessJalo, db } from './firebase.js';
+import { cardWall } from './lib/card-wall.js'
+
 
 //Función para mandar llamar el id que se usa para el evento para ir de home a login.
 const createNewUser = () => {
@@ -25,10 +27,12 @@ const oldUser1 = () => {
 window.addEventListener('DOMContentLoaded', () => oldUser1());
 
 
+
 //login a wall
 const buttonLogin = () => {
     let youLogin = document.getElementById('checkIn');
     youLogin.addEventListener('click', (e) => {
+        //verificarPasswords()
         e.preventDefault();
         register();
     });
@@ -57,3 +61,53 @@ const buttonGoogleInput = () => {
     });
 };
 window.addEventListener('DOMContentLoaded', () => buttonGoogleInput());
+
+
+//Publicated porst in Wall
+const saveTask = (title, description) => 
+        db.collection('tasks').doc().set({
+                title,
+                description
+            });
+async function getTasks() {db.collection('Tasks').get()};
+const onGetTasks = (callback) => db.collection('tasks').onSnapshot(callback);
+    console.log(onGetTasks);
+
+export const task = doc();
+
+async function forEachCard() {
+    console.log('tambien escucho');
+    const tasks = await getTasks();
+    console.log(tasks);
+    const taskContainer = document.getElementById('tasks-container');
+    onGetTasks((querySnapshot) => {
+        taskContainer.innerHTML ='';
+        querySnapshot.forEach(doc => {
+            console.log(doc.data());
+                       
+            task();
+
+            taskContainer.innerHTML += cardWall();
+        })
+    })
+};
+window.addEventListener('DOMContentLoaded',forEachCard());
+const buttonSavePublication = () => {
+    
+    let taskForm = document.getElementById('task-formPublication');
+
+    taskForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const title = taskForm['task-InputNewPublication'];
+        const description = taskForm['task-contentPublication'];
+
+        await saveTask(title.value, description.value)
+        await forEachCard();
+        await getTasks();
+        taskForm.reset();
+        title.focus();
+        console.log('si escucho');      
+    })
+};
+
+window.addEventListener('click', buttonSavePublication());
