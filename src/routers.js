@@ -7,10 +7,10 @@ import { profile } from './lib/profile.js';
 
 export const routes = {
     '/': home(), 
-    '/home-login':homeLogin(),
-    '/login':login,
-    '/wall' : wall,
-    '/profile' : profile
+    '/home-login': homeLogin(),
+    '/login': login(),
+    '/wall' : wall(),
+    '/profile' : profile()
 };
 
 const rootDiv = document.getElementById('root');
@@ -24,8 +24,3 @@ export const onNavigate = (pathname) => {
 };
 
 rootDiv.innerHTML =routes[window.location.pathname];
-
-
-
-
-
