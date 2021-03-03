@@ -1,4 +1,4 @@
-//Vista que te da acceso cuando ya te encuentras logueada.
+// Vista que te da acceso cuando ya te encuentras logueada.
 export const homeLogin = () => `
   <div class='home-login'>
     <div class='logoHomeLogin'>
@@ -11,4 +11,5 @@ export const homeLogin = () => `
       <input type="password" id="passwordOldUser" class='styleFormLoginHome' placeholder="password"/>
       <button id='buttonLoginInputs' class='buttonsLogin'>Entrar</button>
     </form>
-  </div>`;
+  </div>
+  `;

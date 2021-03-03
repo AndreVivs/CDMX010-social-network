@@ -1,5 +1,5 @@
 import { onNavigate } from './routers.js';
-//import {verificarPasswords} from './main.js';
+// import {verificarPasswords} from './main.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8',
@@ -12,7 +12,7 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-export let db = firebase.firestore();
+export const db = firebase.firestore();
 
 // Register function
 export function register() {
@@ -67,10 +67,10 @@ export function accessJalo() {
   const emailLog = document.getElementById('emailOldUser').value;
   const passwordLog = document.getElementById('passwordOldUser').value;
   firebase.auth().signInWithEmailAndPassword(emailLog, passwordLog)
-    .then((result) => {
+    .then(() => {
       onNavigate('/wall');
-      })
-      //$('.modal').modal('close')
+    })
+  // $('.modal').modal('close')
     .catch((error) => {
       // const errorCode = error.code;
       const errorMessage = error.message;

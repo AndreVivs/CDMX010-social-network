@@ -1,6 +1,6 @@
-import {task} from '../main.js'
+import { task } from '../main.js';
 
-export const cardWall = () =>`
+export const cardWall = () => `
                 <div class='card'>
                     <h3>${task.title}</h3>
                     <p>${task.description}</p>
@@ -12,4 +12,5 @@ export const cardWall = () =>`
                         <button class='buttonNewPublication'>Borrar</button>
                         <button class='buttonNewPublication'>Borrar</button>
                     </div>
-                </div>`;
+                </div>
+                `;
