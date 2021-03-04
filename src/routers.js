@@ -6,7 +6,7 @@ import { wall } from './lib/wall.js';
 import { profile } from './lib/profile.js';
 
 export const routes = {
-  '/': home(), 
+  '/': home(),
   '/home-login': homeLogin(),
   '/login': login(),
   '/wall': wall(),

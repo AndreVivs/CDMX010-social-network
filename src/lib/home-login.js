@@ -12,5 +12,4 @@ export const homeLogin = () => `
       <button id='buttonLoginInputs' class='buttonsLogin'>Entrar</button>
     </form>
   </div>
-  `;
-  
+`;
