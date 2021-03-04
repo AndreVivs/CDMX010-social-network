@@ -67,7 +67,7 @@ const saveTask = (title, description) =>
 async function getTasks() { db.collection('Tasks').get(); }
 const onGetTasks = (callback) => db.collection('tasks').onSnapshot(callback);
 console.log(onGetTasks);
-// doc is not defined
+
 export const task = doc();
 
 async function forEachCard() {
