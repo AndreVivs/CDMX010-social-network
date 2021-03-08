@@ -1,5 +1,4 @@
 import { onNavigate } from './routers.js';
-// import {verificarPasswords} from './main.js';
 import { cardWall } from './lib/card-wall.js';
 
 const firebaseConfig = {
@@ -63,7 +62,7 @@ export function register() {
   });
 
 // Login google function
-/*export*/ function loginGoogle() {
+function loginGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth()
     .signInWithPopup(provider)

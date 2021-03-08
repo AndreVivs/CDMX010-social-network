@@ -1,11 +1,5 @@
 import { onNavigate } from './routers.js';
-import {
-  register,
-  loginGoogle,
-  accessJalo,
-  historyRef,
-} from './firebase.js';
-import { cardWall } from './lib/card-wall.js';
+import { register, loginGoogle, accessJalo, historyRef } from './firebase.js';
 
 //Función para mandar llamar el id que se usa para el evento para ir de home a login.
 const createNewUser = () => {
