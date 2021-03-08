@@ -84,7 +84,7 @@ element.style {}
 
 element.style {}
 .logoHomeLogin {
-    padding: 12% 27%;
+    padding: 12% 21%;
     margin: 0%;
     display: flex;
     justify-content: center;
@@ -117,6 +117,7 @@ h3 {
     display: flex;
     justify-content: center;
     color: #eaeaea;
+    padding: 0% 11% 0% 0%;
 }
 
 element.style {}
@@ -171,8 +172,8 @@ element.style {}
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0% 2% 26% 4%;
-    margin: 0% 5% 0% 3%;
+    padding: 0% 4% 0% 1%;
+    margin: 0% 8% 0% 0%;
 };
 
 element.style {}
@@ -185,7 +186,8 @@ element.style {}
     color: #eaeaea;
     font-family: 'Comfortaa', cursive;
     font-size: medium;
-    margin: 2% 7%;
+    margin: 0% 8% 2% 2%;
+    padding: 1% 1% 0% 0%;
 };
 
 element.style {} 
@@ -201,7 +203,7 @@ button.buttonsLogin {
     font-family: 'Comfortaa', cursive;
     font-size: medium;
     border: thin;
-    margin: 0% 25%;
+    margin: 0% 23%;
 };
 
 element.style {}
@@ -220,7 +222,7 @@ button#buttonGoogle {
     padding: 6% 16%;
     border-radius: 12%;
     border: medium;
-    margin: 6% 0% 6% 32%;
+    margin: 6% 0% 6% 27%;
     display: flex;
     justify-content: center;
     width: 54px;
@@ -253,6 +255,8 @@ element.style {}
     justify-content: center;
     width: 135%;
     height: 100%;
+    margin: 0%;
+    padding: 0% 3%;
 };
 
 element.style {}
@@ -266,11 +270,147 @@ element.style {}
 };
 
 element.style {}
-#InputNewPublication {
+.createPublication2 {
     display: flex;
     justify-content: center;
-    width: 63%;
-    height: 30%;
+    flex-direction: column;
+    margin: 0%;
+    padding: 0% 36% 0% 19%;
+};
+
+element.style {}
+.card {
+    display: flex;
+    flex-direction: column;
+    border: ridge;
+    padding: 2%;
+    margin: 0% 34% 0% 0%;
+    font-family: 'Comfortaa', cursive;
+};
+
+element.style {}
+.divCard {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0% 0% 0% 10%;
+    padding: 2% 7%;
+};
+
+element.style {}
+.textCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: ridge;
+    padding: 9% 0% 0% 6%;
+    margin: 0% -82% 2% -52%;
+    font-family: 'Comfortaa', cursive;
+};
+
+element.style {}
+h3.h3Publication {
+    margin: 0%;
+    display: flex;
+    justify-content: end;
+    color: #5A1846;
+    padding: 0% 55% 0% 0%;
+}
+
+element.style {}
+.avatarsCard{
+    display: flex;
+    justify-content: flex-start;
+    margin: 0%;
+    width: 266%;
+    height: 0%;
+};
+
+element.style {}
+.enviajaCard{
+    display: flex;
+    justify-content: flex-start;
+    width: 265%;
+    padding: 0% 0%;
+    margin: 0%;
+};
+
+element.style {}
+.buttonCard{
+    display: flex;
+    flex-direction: row;
+    padding: 2%;
+    margin: 0% 34% 0% 0%;
+    font-family: 'Comfortaa', cursive;
+};
+
+element.style {} 
+button#avatarPublication {
+    display: flex;
+    justify-content: center;
+    background-image: url(assets/avatar-publication.png);
+    padding: 15% 0% 0% 0%;
+    margin: 0% 100% 0% -21%;
+    width: 16%;
+};
+
+element.style {} 
+button#desenviaja {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 13% 13% 0% 0%;
+    margin: 0% 6% 0% -20%;
+    background-image: url(assets/desaviona.png);
+    width: 0%;
+};
+
+element.style {} 
+button.buttonNewPublication2 {
+    background: #FF723F;
+    border-radius: 24%;
+    width: 91%;
+    height: 0%;
+    color: #EAEAEA;
+    display: flex;
+    justify-content: center;
+    padding: 8% 20% 9% 25%;
+    font-family: 'Comfortaa', cursive;
+    font-size: medium;
+    border: thin;
+    margin: 2% 22% 8% 0%;
+};
+
+element.style {}
+#form-groupInput {
+    display: flex;
+    justify-content: center;
+    margin: 0%;
+    width: 100%;
+};
+
+element.style {}
+#task-InputNewPublication {
+    display: flex;
+    justify-content: center;
+    width: 84%;
+    height: 34%;
+    font-family: 'Comfortaa', cursive;
+};
+
+element.style {}
+.form-group {
+    display: flex;
+    justify-content: center;
+};
+
+
+element.style {}
+.toPublicated {
+    display: flex;
+    justify-content: center;
+    padding: 7%;
+    margin: 1%;
+    font-family: 'Comfortaa', cursive;
 };
 
 element.style {} 
@@ -298,12 +438,12 @@ element.style {}
     margin: 0% 6% 0% 4%;
 };
 
-
 element.style {}
 .publication {
     display: flex;
-    justify-content: center;
-    padding: 3%;
+    flex-direction: column;
+    padding: 1% 4%;
+    margin: 0%;
 };
 
 element.style {}
@@ -311,22 +451,23 @@ element.style {}
     display: flex;
     justify-content: center;
     background-image: url(assets/avatar-publication.png);
-    padding: 9%;
+    padding: 15% 0% 0% 0%;
     margin: 0% 81% 0% 0%;
+    width: 16%;
 };
 
 element.style {}
 .alreadyPublicated {
     display: flex;
     justify-content: center;
-    padding: 8%;
+    padding: 7%;
 };
 
 element.style {}
 #enviaja {
     display: flex;
     justify-content: center;
-    padding: 8.7%;
+    padding: 13% 13% 0% 0%;
     background-image: url(assets/enaviona.png);
     width: 0%;
 };
@@ -335,7 +476,7 @@ element.style {}
 #desenviaja {
     display: flex;
     justify-content: center;
-    padding: 8.7%;
+    padding: 13% 13% 0% 0%;
     background-image: url(assets/desaviona.png);
     width: 0%;
 };
