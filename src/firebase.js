@@ -1,5 +1,6 @@
 import { onNavigate } from './routers.js';
 // import {verificarPasswords} from './main.js';
+import { cardWall } from './lib/card-wall.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8',
@@ -26,24 +27,43 @@ export function register() {
     document.getElementById('error').classList.remove('mostrar');
     document.getElementById('ok').classList.remove('ocultar');
     firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(() => {
-      // Signed in
-      // verificarPasswords();
-        onNavigate('/wall');
+    .then((result) => {
+      //Signed in
+      //verificarPasswords();
+      onNavigate('/wall');
       // } else {
       //     showModals(noVerification);
       //     firebase.auth().signOut();
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        alert(errorMessage, 4000);
-      });
-    return true;
+      //showAlert()
+      
+      alert(`Bienvenidx a Jalö ${name}
+      !Tu red social para escribir sobre tus lugares magicos en el mundo!`);
+  })
+    .catch((error) => {
+      console.log(error);
+      let errorMessage = error.message;
+      alert(errorMessage, 4000);
+    })
+  
+    return true; 
   }
-}
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      let uid = user.uid;
+      db.collection('Histories')
+      .get()
+      .then((snapshot) => {
+        console.log(snapshot.docs);
+        setupPost(snapshot.docs);
+      })
+    } 
+    else {
+      console.log('auth: dign out')
+    }
+  });
 
 // Login google function
-export function loginGoogle() {
+/*export*/ function loginGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth()
     .signInWithPopup(provider)
@@ -60,10 +80,25 @@ export function loginGoogle() {
       // const email = error.email;
       // const credential = error.credential;
     });
-}
+
+   firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      const uid = user.uid;
+      db.collection('Histories')
+      .get()
+      .then((snapshot) => {
+        console.log(snapshot.docs);
+        setupPost(snapshot.docs);
+      })
+    } 
+    else {
+      console.log('auth: dign out')
+    }
+  });
+};
 
 // Access jalo function
-export function accessJalo() {
+function accessJalo() {
   const emailLog = document.getElementById('emailOldUser').value;
   const passwordLog = document.getElementById('passwordOldUser').value;
   firebase.auth().signInWithEmailAndPassword(emailLog, passwordLog)
@@ -77,9 +112,68 @@ export function accessJalo() {
       alert(errorMessage, 4000);
     });
 
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      // const uid = user.uid;
-    }
-  });
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        let uid = user.uid;
+        db.collection('Histories')
+        .get()
+        .then((snapshot) => {
+          console.log(snapshot.docs);
+          setupPost(snapshot.docs);
+        })
+      } 
+      else {
+        console.log('auth: dign out')
+      }
+    });
+};
+
+//publication in wall
+const db = firebase.firestore();
+const historyRef = (title, description) => {
+  db.collection('Histories').doc().set({
+    title,
+    description,
+    }).then(function() {
+      console.log('history saved');
+    }).catch ((error)  => {
+      console.log('Got an error: '. error);
+       console.log(error);
+     });
+
+    console.log(historyRef);
+    console.log('funciono');
+    console.log(title, description)}; 
+
+
+// let praintCards = document.querySelector("tasks-container");
+let praintCards = document.querySelector('#tasks-container');
+const setupPost = data => {
+  if (data.length) {
+  let html = '';
+  data.forEach(doc => {
+    const post = doc.data()
+    console.log(post);
+    const praint = cardWall(post);
+    html += praint;
+    });
+  praintCards.innerHTML=html;
+} else {
+  praintCards.innerHTML='<p>Login to see Posts</p>';
+}};
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    let uid = user.uid;
+    db.collection('Histories')
+    .get()
+    .then((snapshot) => {
+      console.log(snapshot.docs);
+      setupPost(snapshot.docs);
+    })
+  } 
+  else {
+    console.log('auth: dign out')
+  }
+});
 }

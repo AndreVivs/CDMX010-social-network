@@ -18,6 +18,6 @@ export const wall = () => `
             </div>
         </form>
     </div>
-    <div class='createPublication' id='tasks-container'></div>
+    <div class='createPublication2' id='tasks-container'></div>
   </div> 
 `;
