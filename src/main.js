@@ -1,7 +1,9 @@
 import { onNavigate } from './routers.js';
-import { register, loginGoogle, accessJalo, historyRef } from './firebase.js';
+import {
+  register, loginGoogle, accessJalo, historyRef,
+} from './firebase.js';
 
-//Función para mandar llamar el id que se usa para el evento para ir de home a login.
+// Función para mandar llamar el id que se usa para el evento para ir de home a login.
 const createNewUser = () => {
   const createUser = document.getElementById('newUser');
   createUser.addEventListener('click', (e) => {
@@ -55,16 +57,14 @@ const buttonGoogleInput = () => {
 };
 window.addEventListener('DOMContentLoaded', () => buttonGoogleInput());
 
-
-//Publicated post in Wall
-let buttonHistories = document.getElementById('save');
+// Publicated post in Wall
+const buttonHistories = document.getElementById('save');
 buttonHistories.addEventListener('click', (e) => {
-    e.preventDefault();
-    console.log('si escucho');
-    let title = document.getElementById('task-InputNewPublication').value;
-    let description = document.getElementById('task-contentPublication').value;
-    
-    historyRef(title, description);
-    console.log(title, description);
-    buttonHistories.resert();
+  e.preventDefault();
+  // console.log('si escucho');
+  const title = document.getElementById('task-InputNewPublication').value;
+  const description = document.getElementById('task-contentPublication').value;
+  historyRef(title, description);
+  // console.log(title, description);
+  buttonHistories.resert();
 });

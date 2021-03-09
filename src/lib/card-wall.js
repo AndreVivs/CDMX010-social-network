@@ -1,5 +1,4 @@
-export const cardWall = (post) =>{
-return`
+export const cardWall = (post) => `
 <div class='divCard'>
     <div class='avatarsCard'>
         <button id='avatarPublication'></button>
@@ -16,4 +15,4 @@ return`
         <button class='buttonNewPublication2'>Borrar</button>
     </div>
 </div>
-`};
+`;
