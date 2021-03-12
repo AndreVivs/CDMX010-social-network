@@ -1,5 +1,5 @@
 import { onNavigate } from './routers.js';
-import { setupPost } from './main.js';
+import { cardWall } from './lib/card-wall.js';
 
 let firebaseConfig = {
   apiKey: "AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8",
@@ -93,45 +93,50 @@ export function accessJalo (){
     firebase.auth().onAuthStateChanged(user);
 };
 
-//publication in wall
+//guardar la publicacion a firebase
 const db = firebase.firestore();
-export const historyRef = (title, description) => {
-  db.collection('Histories').doc().set({
-    title,
-    description,
-    }).then(function() {
-      console.log('history saved');
-    }).catch ((error)  => {
-      console.log('Got an error: '. error);
-       console.log(error);
-     });
 
-    console.log(historyRef);
-    console.log('funciono');
-    console.log(title, description)}; 
+export const savePost = (post) => db.collection('Histories')
+    .add({
+     title: post.title,
+     description: post.description,
+     date: Date.now(), 
+    });
 
-  
 
-// let praintCards = document.querySelector("tasks-container");
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    let uid = user.uid;
-    db.collection('Histories')
-    .get()
-    .then((snapshot) => {
-      console.log(snapshot.docs);
-      setupPost(snapshot.docs);
-    })
-  } 
-  else {
-    console.log('auth: dign out')
-  }
-});
+    export const getPost = () => {
+      db.collection('Histories').orderBy('date')
+        .onSnapshot((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            const dataBase = doc.data();
+            return dataBase;
+          });
+        });
+    };
+    getPost();
+
+    const PostContainer = document.querySelector('#tasks-container');
+
+    export const getData = () => {
+      db.collection("Histories").orderBy("date")
+        .onSnapshot((querySnapshot) =>{
+          PostContainer.innerHTML = "";
+          querySnapshot.forEach((doc) =>{
+            const dataBase = doc.data();
+            PostContainer.innerHTML += cardWall(dataBase);
+            console.log(dataBase);
+
+          });
+
+        });
+
+    };
+
+
+
+
+
 
 //Delete to publiation 
 export const deleteHistory = id => db.collection('Histories').doc(id).delete();
 
-//Edit to publiation 
-//const getHistories = db.collection('Histories').get();
-export const getHistoryEdit = id =>  db.collection('Histories').doc(id).get();
-//export const editHistory = id => db.collection('Histories').doc(id).edit();

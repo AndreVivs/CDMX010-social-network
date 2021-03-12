@@ -1,6 +1,6 @@
 import { onNavigate } from './routers.js';
-import { register, loginGoogle, accessJalo, deleteHistory, getHistoryEdit} from './firebase.js';
-import { cardWall } from './lib/card-wall.js';
+import { register, loginGoogle, accessJalo, deleteHistory, savePost, getData} from './firebase.js';
+
 
 //Función para mandar llamar el id que se usa para el evento para ir de home a login.
 const createNewUser = () => {
@@ -63,35 +63,36 @@ window.addEventListener('DOMContentLoaded', () => buttonGoogleInput());
 
 
 //Publicated porst in Wall
-let buttonHistories = document.getElementById('save');
+const buttonHistories = document.getElementById('save');
+const title = document.getElementById('task-InputNewPublication');
+const description = document.getElementById('task-contentPublication');
+
+
 buttonHistories.addEventListener('click', (e) => {
     e.preventDefault();
     console.log('si escucho');
-    let title = document.getElementById('task-InputNewPublication').value;
-    let description = document.getElementById('task-contentPublication').value;
-    
-    historyRef(title, description);
-    console.log(title, description);
-    buttonHistories.reset();
+    const post = {
+        title : title.value,
+        description : description.value,
+        date: Date.now(),
+    };
+    if (!title.value.trim() || !description.value.trim()) {
+        console.log('Input vacío!');
+        return;
+    }
+
+savePost(post)
+    .then((docRef) => {
+        console.log('Document ID: ', docRef.id)
+        title.value = "";
+        description.value = "";
+    })
+    .catch((error) => console.log(error));
 });
 
+getData();
 
 
-//put all the histories and delete
-let praintCards = document.querySelector('#tasks-container');
-export const setupPost = data => {
-  if (data.length) {
-    let html = '';
-    data.forEach(doc => {
-        const post = doc.data()
-        post.id = doc.id;
-        const praint = cardWall(post);
-        html += praint;
-        });
-    praintCards.innerHTML=html;
-    } else {
-    praintCards.innerHTML='<p>Login to see Posts</p>';
-    };
 
 const buttonDelete = document.querySelectorAll('.deletePublication');
 buttonDelete.forEach(history => {
@@ -99,19 +100,5 @@ buttonDelete.forEach(history => {
          deleteHistory(e.target.dataset.id);
         })
     })
-//edit
-const buttonEdit = document.querySelectorAll('.editPublication');
-buttonEdit.forEach(history => {
-    history.addEventListener('click', async (e) => {
-        console.log('editando'); 
-        console.log(e.target.dataset.id);
-        const doc = await getHistoryEdit(e.target.dataset.id);
-        console.log(doc.data());
-        //editeHistory(e.target.dataset.id);
-        })
-    })
-};
-
-
 
 
