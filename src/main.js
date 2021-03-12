@@ -84,13 +84,13 @@ export const setupPost = (data) => {
   }
   // Like function
   const counterLikes = document.getElementById('desenviaja');
-  console.log(counterLikes)
-  counterLikes.addEventListener('click', (e) => {
-    console.log('like aqui presente');
+  // console.log(counterLikes);
+  counterLikes.addEventListener('click', () => {
+    // console.log('like aqui presente');
     const counter = document.querySelectorAll('counter');
     counter.innerHTML = 1;
-    if (counter < 1) {
-    } /* if (counter === 1) {
+    /* if (counter < 1) {
+    } if (counter === 1) {
       counter.innerHTML = 0;
     } */
   });

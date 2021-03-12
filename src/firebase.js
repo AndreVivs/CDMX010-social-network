@@ -4,6 +4,7 @@
 import { onNavigate } from './routers.js';
 import { cardWall } from './lib/card-wall.js';
 import { setupPost } from './main.js';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8',
   authDomain: 'jaloredsocial.firebaseapp.com',
