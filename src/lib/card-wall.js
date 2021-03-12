@@ -8,7 +8,8 @@ export const cardWall = (post) => `
         <p>${post.description}</p>
     </div>
     <div class='enviajaCard'>
-        <button id='desenviaja'></button> 
+        <button id='desenviaja'></button>
+        <span class='counter'>0</span>
     </div>
     <div class='buttonCard'>
         <button class='buttonNewPublication2'>Editar</button>

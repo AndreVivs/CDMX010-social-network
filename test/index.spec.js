@@ -1,8 +1,8 @@
-/* importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
+// Funciones a testear
+import { onNavigate } from '../src/routers';
 
-describe('myFunction', () => {
+describe('funcion onNavigate', () => {
   it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+    expect(typeof onNavigate).toBe('function');
   });
-}); */
+});

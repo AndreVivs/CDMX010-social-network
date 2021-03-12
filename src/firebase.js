@@ -3,7 +3,7 @@
 /* eslint-disable consistent-return */
 import { onNavigate } from './routers.js';
 import { cardWall } from './lib/card-wall.js';
-
+import { setupPost } from './main.js';
 const firebaseConfig = {
   apiKey: 'AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8',
   authDomain: 'jaloredsocial.firebaseapp.com',
@@ -16,23 +16,6 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-
-// let praintCards = document.querySelector("tasks-container");
-const praintCards = document.querySelector('#tasks-container');
-const setupPost = (data) => {
-  if (data.length) {
-    let html = '';
-    data.forEach((doc) => {
-      const post = doc.data();
-      // // console.log(post);
-      const praint = cardWall(post);
-      html += praint;
-    });
-    praintCards.innerHTML = html;
-  } else {
-    praintCards.innerHTML = '<p>Login to see Posts</p>';
-  }
-};
 
 // Register function
 export function register() {
@@ -104,7 +87,7 @@ export function loginGoogle() {
     });
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      // const uid = user.uid;
+      const uid = user.uid;
       db.collection('Histories')
         .get()
         .then((snapshot) => {

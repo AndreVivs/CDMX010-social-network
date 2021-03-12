@@ -2,7 +2,7 @@ import { onNavigate } from './routers.js';
 import {
   register, loginGoogle, accessJalo, historyRef,
 } from './firebase.js';
-
+import { cardWall } from './lib/card-wall.js';
 // Función para mandar llamar el id que se usa para el evento para ir de home a login.
 const createNewUser = () => {
   const createUser = document.getElementById('newUser');
@@ -66,5 +66,32 @@ buttonHistories.addEventListener('click', (e) => {
   const description = document.getElementById('task-contentPublication').value;
   historyRef(title, description);
   // console.log(title, description);
-  buttonHistories.resert();
+  buttonHistories.reset();
 });
+
+// let praintCards = document.querySelector("tasks-container");
+const praintCards = document.querySelector('#tasks-container');
+export const setupPost = (data) => {
+  if (data.length) {
+    let html = '';
+    data.forEach((doc) => {
+      const post = doc.data();
+      // // console.log(post);
+      const praint = cardWall(post);
+      html += praint;
+    });
+    praintCards.innerHTML = html;
+  }
+  // Like function
+  const counterLikes = document.getElementById('desenviaja');
+  console.log(counterLikes)
+  counterLikes.addEventListener('click', (e) => {
+    console.log('like aqui presente');
+    const counter = document.querySelectorAll('counter');
+    counter.innerHTML = 1;
+    if (counter < 1) {
+    } /* if (counter === 1) {
+      counter.innerHTML = 0;
+    } */
+  });
+};
