@@ -134,9 +134,3 @@ export const savePost = (post) => db.collection('Histories')
 
 
 
-
-
-
-//Delete to publiation 
-export const deleteHistory = id => db.collection('Histories').doc(id).delete();
-
