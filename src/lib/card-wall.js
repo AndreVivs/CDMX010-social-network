@@ -9,7 +9,7 @@ export const cardWall = (post) => `
     </div>
     <div class='enviajaCard'>
         <button id='desenviaja'></button>
-        <span class='counter'>0</span>
+        <span id='counter'>0</span>
     </div>
     <div class='buttonCard'>
         <button class='buttonNewPublication2'>Editar</button>

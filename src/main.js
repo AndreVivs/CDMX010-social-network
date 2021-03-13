@@ -83,15 +83,16 @@ export const setupPost = (data) => {
     praintCards.innerHTML = html;
   }
   // Like function
-  const counterLikes = document.getElementById('desenviaja');
-  // console.log(counterLikes);
+  const counterLikes = document.querySelectorAll('.desenviaja');
+  console.log(counterLikes);
   counterLikes.addEventListener('click', () => {
-    // console.log('like aqui presente');
-    const counter = document.querySelectorAll('counter');
-    counter.innerHTML = 1;
-    /* if (counter < 1) {
+    console.log('like aqui presente');
+    const counter = document.getElementById('counter');
+    let i = 0;
+    if (counter < 1) {
+      counter.innerHTML = i++;
     } if (counter === 1) {
       counter.innerHTML = 0;
-    } */
+    }
   });
 };
