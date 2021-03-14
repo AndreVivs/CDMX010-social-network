@@ -93,7 +93,7 @@ export function accessJalo (){
     firebase.auth().onAuthStateChanged(user);
 };
 
-//guardar la publicacion a firebase
+//guardar la publicacion a firebasen ESTE ES HISTORY FER DE MIRI
 const db = firebase.firestore();
 
 export const savePost = (post) => db.collection('Histories')
@@ -104,26 +104,16 @@ export const savePost = (post) => db.collection('Histories')
     });
 
 
-    export const getPost = () => {
-      db.collection('Histories').orderBy('date')
-        .onSnapshot((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            const dataBase = doc.data();
-            return dataBase;
-          });
-        });
-    };
-    getPost();
 
-    const PostContainer = document.querySelector('#tasks-container');
+export const postContainer = document.querySelector('#tasks-container');
 
     export const getData = () => {
       db.collection("Histories").orderBy("date")
         .onSnapshot((querySnapshot) =>{
-          PostContainer.innerHTML = "";
+          postContainer.innerHTML = "";
           querySnapshot.forEach((doc) =>{
             const dataBase = doc.data();
-            PostContainer.innerHTML += cardWall(dataBase);
+            postContainer.innerHTML += cardWall(dataBase);
             console.log(dataBase);
 
           });
@@ -131,6 +121,3 @@ export const savePost = (post) => db.collection('Histories')
         });
 
     };
-
-
-

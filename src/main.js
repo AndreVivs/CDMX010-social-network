@@ -1,5 +1,5 @@
 import { onNavigate } from './routers.js';
-import { register, loginGoogle, accessJalo, deleteHistory, savePost, getData} from './firebase.js';
+import { register, loginGoogle, accessJalo, savePost, getData,} from './firebase.js';
 
 
 //Función para mandar llamar el id que se usa para el evento para ir de home a login.
@@ -77,7 +77,7 @@ buttonHistories.addEventListener('click', (e) => {
         date: Date.now(),
     };
     if (!title.value.trim() || !description.value.trim()) {
-        console.log('Input vacío!');
+        alert('Escribe algo antes de publicar!');
         return;
     }
 
@@ -94,11 +94,18 @@ getData();
 
 
 
-const buttonDelete = document.querySelectorAll('.deletePublication');
-buttonDelete.forEach(history => {
-    history.addEventListener('click', (e) => {
-         deleteHistory(e.target.dataset.id);
-        })
-    })
-
+/*const buttonDelete = postContainer.querySelectorAll(".deletePublication");
+    buttonDelete.forEach((btn) =>
+      btn.addEventListener("click", async (e) => {
+        if (confirm('¿Estas segurx que quieres eliminar la reseña de viaje?')) {
+       // Save it!
+       console.log('La historia se ha borrado');
+       deleteHistory(e.target.dataset.id);
+     } else {
+       // Do nothing!
+       console.log('No se borro');
+     }
+       
+       
+   });*/
 
