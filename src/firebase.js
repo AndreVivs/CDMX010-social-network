@@ -14,6 +14,7 @@ const firebaseConfig = {
   appId: '1:438968128013:web:9d1b47242a6f58c825bb44',
   measurementId: 'G-8FRZGM62BF',
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
@@ -45,26 +46,12 @@ export function register() {
       !Tu red social para escribir sobre tus lugares magicos en el mundo!`);
       })
       .catch((error) => {
-        // // console.log(error);
+        // console.log(error);
         const errorMessage = error.message;
         alert(errorMessage, 4000);
       });
-
     return true;
   }
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      // const uid = user.uid;
-      db.collection('Histories')
-        .get()
-        .then((snapshot) => {
-          // // console.log(snapshot.docs);
-          setupPost(snapshot.docs);
-        });
-    } else {
-      // // console.log('auth: dign out');
-    }
-  });
 }
 
 // Login google function
@@ -84,22 +71,9 @@ export function loginGoogle() {
       const errorMessage = error.message;
       alert(errorMessage, 4000);
       const email = error.email;
-      const credential = error.credential;
-    });
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      const uid = user.uid;
-      db.collection('Histories')
-        .get()
-        .then((snapshot) => {
-          // console.log(snapshot.docs);
-          setupPost(snapshot.docs);
-        });
-    } else {
-      // // console.log('auth: dign out');
-    }
-  });
-}
+      credential = error.credential;
+   });
+};
 
 // Access jalo function
 export function accessJalo() {
@@ -116,50 +90,33 @@ export function accessJalo() {
       const errorMessage = error.message;
       alert(errorMessage, 4000);
     });
-
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      const uid = user.uid;
-      db.collection('Histories')
-        .get()
-        .then((snapshot) => {
-          // console.log(snapshot.docs);
-          setupPost(snapshot.docs);
-        });
-    } else {
-      // // console.log('auth: dign out');
-    }
-  });
-}
-
-// publication in wall (generar documentos en firebas)
-export const historyRef = (title, description) => {
-  db.collection('Histories').doc().set({
-    title,
-    description,
-  }).then(() => {
-    // // console.log('history saved');
-  })
-    .catch((error) => {
-      // console.log('Got an error: '.error);
-      // console.log(error);
-    });
-
-  // console.log(historyRef);
-  // console.log('funciono');
-  // console.log(title, description);
 };
 
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    const uid = user.uid;
-    db.collection('Histories')
-      .get()
-      .then((snapshot) => {
-        // console.log(snapshot.docs);
-        setupPost(snapshot.docs);
-      });
-  } else {
-    // console.log('auth: dign out');
-  }
-});
+//guardar la publicacion a firebase
+const db = firebase.firestore();
+export const savePost = (post) => db.collection('Histories')
+  .add({
+    title: post.title,
+    description: post.description,
+    date: Date.now(), 
+  });
+    
+const PostContainer = document.querySelector('#tasks-container');
+export const getData = () => {
+  db.collection("Histories").orderBy("date")
+  .onSnapshot((querySnapshot) =>{
+    PostContainer.innerHTML = "";
+    querySnapshot.forEach((doc) =>{
+      const post = doc.data()
+      post.id = doc.id;
+      PostContainer.innerHTML += cardWall(post);
+      console.log(post);
+    });
+  });
+};
+
+export const deleteHistory = id => db.collection('Histories').doc(id).delete();
+//Edit to publiation 
+//const getHistories = db.collection('Histories').get();
+export const getHistoryEdit = id =>  db.collection('Histories').doc(id).get();
+export const updateHistory = (id, updatedHistory) => db.collection('Histories').doc(id).update(updatedHistory);
