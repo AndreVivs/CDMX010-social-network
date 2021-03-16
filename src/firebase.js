@@ -3,7 +3,6 @@
 /* eslint-disable consistent-return */
 import { onNavigate } from './routers.js';
 import { cardWall } from './lib/card-wall.js';
-import { setupPost } from './main.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8',
@@ -92,15 +91,14 @@ export function accessJalo() {
     });
 };
 
-//guardar la publicacion a firebase
-const db = firebase.firestore();
+// guardar la publicacion a firebase
 export const savePost = (post) => db.collection('Histories')
   .add({
     title: post.title,
     description: post.description,
     date: Date.now(), 
   });
-    
+
 const PostContainer = document.querySelector('#tasks-container');
 export const getData = () => {
   db.collection("Histories").orderBy("date")

@@ -1,7 +1,7 @@
 import { onNavigate } from './routers.js';
 import { register, loginGoogle, accessJalo, deleteHistory, savePost, getHistoryEdit, updateHistory, getData} from './firebase.js';
 
-//Función para mandar llamar el id que se usa para el evento para ir de home a login.
+// Función para mandar llamar el id que se usa para el evento para ir de home a login.
 const createNewUser = () => {
   const createUser = document.getElementById('newUser');
   createUser.addEventListener('click', (e) => {
