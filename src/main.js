@@ -1,7 +1,6 @@
 import { onNavigate } from './routers.js';
-import { register, loginGoogle, accessJalo, deleteHistory, savePost, getHistoryEdit, updateHistory, getData} from './firebase.js';
-
-// Función para mandar llamar el id que se usa para el evento para ir de home a login.
+import { register, loginGoogle, accessJalo, deleteHistory, savePost, getHistoryEdit, updateHistory} from './firebase.js';
+//Función para mandar llamar el id que se usa para el evento para ir de home a login.
 const createNewUser = () => {
   const createUser = document.getElementById('newUser');
   createUser.addEventListener('click', (e) => {
@@ -58,105 +57,82 @@ const buttonSingIn = () => {
 
 window.addEventListener('DOMContentLoaded', () => buttonSingIn());
 
-//Publicated post in Wall
-let buttonHistories = document.getElementById('save');
+//the actions in inputs div wall.
+let editStatus = false;
+let id = '';
+let buttonHistories = document.getElementsByClassName('save');
 let formHistories = document.getElementById('task-formPublication');
-buttonHistories.addEventListener('click', (e) => {
-  e.preventDefault();
-  console.log('si escucho');
-  let title = document.getElementById('task-InputNewPublication').value;
-  let description = document.getElementById('task-contentPublication').value;
-  savePost(title, description);
-  formHistories.reset();
+const updatePost = document.querySelector('#history-container');
+updatePost.addEventListener('click', async (e) => {
+    if (e.target.classList.contains('save')) {
+        e.preventDefault();
+        const title = document.getElementById('task-InputNewPublication');
+        const description = document.getElementById('task-contentPublication');
+        console.log(buttonHistories);
+        
+        try {
+            //Lógica de publicación.
+            if (!title.value.trim() || !description.value.trim()) {
+                alert('Escribe algo antes de publicar!');
+                 if (!editStatus) {
+                await savePost(title.value, description.value);
+                console.log('si se guardo')
+                }     
+            }
+           //Lógica de edición.
+            else {
+                await updateHistory(id, {
+                title: title.value,
+                description: description.value,
+                })
+                console.log('Si estoy');
+                editStatus = false;
+                id = ''
+                buttonHistories[0].innerText = 'Save';
+            }
+
+            formHistories.reset();
+            title.focus();
+        } catch (error) {
+            console.log(error);
+            }
+        };
 });
 
 //put all the histories and delete
-let editStatus = false;
-let id = '';
 let printCards = document.querySelector('#tasks-container');
 printCards.addEventListener('click', async (e) => {
-  if(e.target.classList.contains('save')) {
-  e.preventDefault();
-  console.log('yaaas');
-  const post = {
-  title : title.value,
-  description : description.value,
-  date: Date.now(),
-  };
-
-  if(!title.value.trim() || !description.value.trim()) {
-  console.log('Input vacío!');
-  return;
-  }
-
-  savePost(post)
-  .then((docRef) => {
-  console.log('Document ID: ', docRef.id)
-  title.value = "";
-  description.value = "";
-  })
-  .catch((error) => console.log(error));
-  };
-
-  if(e.target.classList.contains('deletePublication')) {
-  console.log('si puedo borrar')
-    if (confirm('¿Estas segurx que quieres eliminar la reseña de viaje?')) {
-    // Save it!
-    console.log('La historia se ha borrado');
-    console.log(e.target.dataset.id);
-    await deleteHistory(e.target.dataset.id);
-    } else {   
-    // Do nothing!
-    console.log('No se borro');
+    //lógica de borrar.
+    if ( e.target.classList.contains('deletePublication')) {
+       console.log('si puedo borrar')
+       if (confirm('¿Estas segurx que quieres eliminar la reseña de viaje?')) {
+            // Save it!
+            console.log('La historia se ha borrado');
+            console.log(e.target.dataset.id);
+            await deleteHistory(e.target.dataset.id);
+        } else {   
+            // Do nothing!
+            console.log('No se borro');
+            }    
+    }; 
+    // Lógica para guardar publicación editada.
+    if (e.target.classList.contains('editPublication')) {
+        try{
+            let buttonHistories = document.getElementsByClassName('save');
+            console.log('editando'); 
+            console.log(e.target.dataset.id);
+            const doc = await getHistoryEdit(e.target.dataset.id);
+            const post = doc.data();
+            const title = document.getElementById('task-InputNewPublication');
+            const description = document.getElementById('task-contentPublication');
+            title.value = post.title;
+            description.value = post.description;
+            buttonHistories[0].innerText = 'Guardar';
+            console.log(buttonHistories[0], 'si jalo');
+            editStatus = true;
+            id= doc.id;       
+        } catch (error) {
+            console.log(error);
+        }
     }
-  };
-
-  if(e.target.classList.contains('editPublication')) {
-    try{
-    console.log('editando'); 
-    console.log(e.target.dataset.id);
-    const doc = await getHistoryEdit(e.target.dataset.id);
-    const post = doc.data();
-    const title = document.getElementById('task-InputNewPublication');
-    const description = document.getElementById('task-contentPublication');
-    title.value = post.title;
-    description.value = post.description;
-    editStatus = true;
-    id= doc.id;
-    buttonHistories.innerText = 'Guardar';
-    } catch(error){
-    console.log(error);
-    }
-  }
-});
-
-const updatePost = document.querySelector('#history-container');
-updatePost.addEventListener('click', async (e) => {
-  if (e.target.classList.contains('save')) {
-  const title = document.getElementById('task-InputNewPublication');
-  const description = document.getElementById('task-contentPublication'); 
-  id= doc.id;     
-    try {
-      if (editStatus === true) {
-      await updateHistory(id, {
-      title: title.value,
-      description: description.value,
-      });
-      editStatus = false;
-      id = ''
-      buttonHistories.innerText = 'Save';
-      }else {
-      await savePost(title.value, description.value);
-      }
-      formHistories.reset();
-      title.focus();
-    }catch(error){
-    console.log(error);
-    };
-  buttonHistories.reset();
-  } 
-});
-
-window.addEventListener('DOMContentLoaded', (e) => {
-getData(e);
 });

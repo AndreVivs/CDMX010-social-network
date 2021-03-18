@@ -4,13 +4,14 @@ import { homeLogin } from './lib/home-login.js';
 import { login } from './lib/login.js';
 import { wall } from './lib/wall.js';
 import { profile } from './lib/profile.js';
+import { getData } from './firebase.js';
 
 export const routes = {
-  '/': home(),
-  '/home-login': homeLogin(),
-  '/login': login(),
-  '/wall': wall(),
-  '/profile': profile(),
+    '/': home(), 
+    '/home-login': homeLogin(),
+    '/login': login(),
+    '/wall' : [wall(), getData()],
+    '/profile' : profile()
 };
 
 const rootDiv = document.getElementById('root');

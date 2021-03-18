@@ -91,26 +91,35 @@ export function accessJalo() {
     });
 };
 
-// guardar la publicacion a firebase
-export const savePost = (post) => db.collection('Histories')
-  .add({
-    title: post.title,
-    description: post.description,
-    date: Date.now(), 
-  });
+//guardar la publicacion a firebase
+const db = firebase.firestore();
+export const savePost = (title, description) => {
+db.collection('Histories').doc().set({
+    title,
+    description
+  }).then(function() {
+    console.log('history saved');
+  }).catch ((error) => {
+    console.log('Got an error: '. error);
+       console.log(error);
+     });
+  }; 
 
-const PostContainer = document.querySelector('#tasks-container');
+let orderDate = () => {db.collection('Histories').orderBy('date')};
 export const getData = () => {
-  db.collection("Histories").orderBy("date")
+  console.log('ejecucion de getData');
+  db.collection("Histories")
   .onSnapshot((querySnapshot) =>{
-    PostContainer.innerHTML = "";
-    querySnapshot.forEach((doc) =>{
-      const post = doc.data()
+    let html = [];
+    querySnapshot.forEach(doc =>{
+      const post = doc.data();
       post.id = doc.id;
-      PostContainer.innerHTML += cardWall(post);
-      console.log(post);
+      html += cardWall(post);
+      })
+    const PostContainer = document.getElementById('tasks-container');
+    PostContainer.innerHTML += html;
+    orderDate();
     });
-  });
 };
 
 export const deleteHistory = id => db.collection('Histories').doc(id).delete();
