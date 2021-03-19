@@ -8,12 +8,12 @@ export const cardWall = (post) => `
         <p>${post.description}</p>
     </div>
     <div class='enviajaCard'>
-        <button id='desenviaja'></button>
-        <span id='counter'>0</span>
+        <button class='desenviaja' data-id = '${post.id}'></button>
+        <span id= 'desenviaja'data-id = '${post.id}'> ${post.totalLike} </span>
     </div>
     <div class='buttonCard'>
-        <button class='buttonNewPublication2'>Editar</button>
-        <button class='buttonNewPublication2'>Borrar</button>
+        <button class='buttonNewPublication2' data-id = '${post.id}'>Editar</button>
+        <button class='buttonNewPublication2' data-id = '${post.id}'>Borrar</button>
     </div>
 </div>
 `;

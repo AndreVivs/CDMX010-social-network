@@ -7,11 +7,11 @@ import { profile } from './lib/profile.js';
 import { getData } from './firebase.js';
 
 export const routes = {
-    '/': home(), 
-    '/home-login': homeLogin(),
-    '/login': login(),
-    '/wall' : [wall(), getData()],
-    '/profile' : profile()
+  '/': home(), 
+  '/home-login': homeLogin(),
+  '/login': login(),
+  '/wall': [wall(), getData()],
+  '/profile': profile(),
 };
 
 const rootDiv = document.getElementById('root');

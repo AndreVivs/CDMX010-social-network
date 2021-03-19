@@ -18,6 +18,10 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+export function activeUser() {
+  return firebase.auth().currentUser;
+}
+
 // Register function
 export function register() {
   const email = document.getElementById('email').value;
@@ -45,7 +49,7 @@ export function register() {
       !Tu red social para escribir sobre tus lugares magicos en el mundo!`);
       })
       .catch((error) => {
-        // console.log(error);
+        console.log(error);
         const errorMessage = error.message;
         alert(errorMessage, 4000);
       });
@@ -65,14 +69,14 @@ export function loginGoogle() {
       onNavigate('/wall');
     })
     .catch((error) => {
-      // // console.log(error);
+      console.log(error);
       const errorCode = error.code;
       const errorMessage = error.message;
       alert(errorMessage, 4000);
       const email = error.email;
-      credential = error.credential;
-   });
-};
+      const credential = error.credential;
+    });
+}
 
 // Access jalo function
 export function accessJalo() {
@@ -84,46 +88,49 @@ export function accessJalo() {
     })
   // $('.modal').modal('close')
     .catch((error) => {
-      // // console.log(error);
+      console.log(error);
       const errorCode = error.code;
       const errorMessage = error.message;
       alert(errorMessage, 4000);
     });
-};
+}
 
-//guardar la publicacion a firebase
-const db = firebase.firestore();
-export const savePost = (title, description) => {
-db.collection('Histories').doc().set({
+// guardar la publicacion a firebase
+export const savePost = (title, description, like) => {
+  db.collection('Histories').doc().set({
     title,
-    description
-  }).then(function() {
+    description,
+    like
+  }).then(() => {
     console.log('history saved');
-  }).catch ((error) => {
-    console.log('Got an error: '. error);
-       console.log(error);
-     });
-  }; 
-
-let orderDate = () => {db.collection('Histories').orderBy('date')};
-export const getData = () => {
-  console.log('ejecucion de getData');
-  db.collection("Histories")
-  .onSnapshot((querySnapshot) =>{
-    let html = [];
-    querySnapshot.forEach(doc =>{
-      const post = doc.data();
-      post.id = doc.id;
-      html += cardWall(post);
-      })
-    const PostContainer = document.getElementById('tasks-container');
-    PostContainer.innerHTML += html;
-    orderDate();
+  })
+    .catch((error) => {
+      console.log('Got an error: '.error);
+      console.log(error);
     });
 };
 
-export const deleteHistory = id => db.collection('Histories').doc(id).delete();
-//Edit to publiation 
-//const getHistories = db.collection('Histories').get();
-export const getHistoryEdit = id =>  db.collection('Histories').doc(id).get();
+const orderDate = () => { db.collection('Histories').orderBy('date'); };
+export const getData = () => {
+  console.log('ejecucion de getData');
+  db.collection('Histories')
+    .onSnapshot((querySnapshot) => {
+      // let html = '';
+      const PostContainer = document.getElementById('tasks-container');
+      PostContainer.innerHTML = '';
+      querySnapshot.forEach((doc) => {
+        const post = doc.data();
+        console.log(post);
+        post.id = doc.id;
+        // html += cardWall(post);
+        PostContainer.innerHTML += cardWall(post);
+      });
+      orderDate();
+    });
+};
+
+export const deleteHistory = (id) => db.collection('Histories').doc(id).delete();
+// Edit to publiation
+// Const getHistories = db.collection('Histories').get();
+export const getHistoryEdit = (id) => db.collection('Histories').doc(id).get();
 export const updateHistory = (id, updatedHistory) => db.collection('Histories').doc(id).update(updatedHistory);
