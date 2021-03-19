@@ -1,5 +1,5 @@
 import { onNavigate } from './routers.js';
-import { register, loginGoogle, accessJalo, savePost, getData,} from './firebase.js';
+import { register, loginGoogle, accessJalo, savePost, getData} from './firebase.js';
 
 
 //Función para mandar llamar el id que se usa para el evento para ir de home a login.
@@ -62,6 +62,7 @@ const buttonGoogleInput = () => {
 window.addEventListener('DOMContentLoaded', () => buttonGoogleInput());
 
 
+
 //Publicated porst in Wall
 const buttonHistories = document.getElementById('save');
 const title = document.getElementById('task-InputNewPublication');
@@ -75,37 +76,59 @@ buttonHistories.addEventListener('click', (e) => {
         title : title.value,
         description : description.value,
         date: Date.now(),
+        DocumentId: 'docRef.id',
     };
     if (!title.value.trim() || !description.value.trim()) {
         alert('Escribe algo antes de publicar!');
         return;
     }
 
-savePost(post)
-    .then((docRef) => {
-        console.log('Document ID: ', docRef.id)
+    savePost(post);
+    /*.then((docRef) => {
+        //console.log('Document ID: ', docRef.id)
         title.value = "";
         description.value = "";
     })
-    .catch((error) => console.log(error));
+    .catch((error) => console.log(error));*/
 });
 
 getData();
 
 
+const buttonEliminar = document.getElementsByClassName('buttonNewPublication2 deletePublication');
+console.log(buttonEliminar);
+console.log(buttonEliminar[0]);
 
-/*const buttonDelete = postContainer.querySelectorAll(".deletePublication");
-    buttonDelete.forEach((btn) =>
-      btn.addEventListener("click", async (e) => {
-        if (confirm('¿Estas segurx que quieres eliminar la reseña de viaje?')) {
-       // Save it!
-       console.log('La historia se ha borrado');
-       deleteHistory(e.target.dataset.id);
-     } else {
-       // Do nothing!
-       console.log('No se borro');
-     }
-       
-       
-   });*/
+var listButtons = document.getElementsByClassName("buttonNewPublication2 deletePublication");
+for (let item of listButtons) {
+    console.log(item);
+}
+
+/*buttonEliminar.forEach((btn) => {
+    console.log("hola soy el boton");
+     btn.addEventListener("click", (e) => {
+        
+    })
+});*/
+
+
+    /*const buttonContainer = document.getElementById('buttonCard');
+    const buttonEliminar = document.getElementById('deletePublication');
+    console.log(buttonEliminar);*/
+
+    /*buttonEliminar.addEventListener('click', (e) => {
+        
+        console.log('si escucho');
+    });
+
+
+  buttonEliminar.forEach((btn) =>
+     btn.addEventListener("click", (e) => {
+        eliminar();
+
+     })
+   );*/
+
+ 
+
 
