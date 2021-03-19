@@ -1,5 +1,7 @@
 import { onNavigate } from './routers.js';
 import { register, loginGoogle, accessJalo, savePost, getData} from './firebase.js';
+import { cardWall } from './lib/card-wall.js';
+
 
 
 //Función para mandar llamar el id que se usa para el evento para ir de home a login.
@@ -95,40 +97,16 @@ buttonHistories.addEventListener('click', (e) => {
 getData();
 
 
-const buttonEliminar = document.getElementsByClassName('buttonNewPublication2 deletePublication');
+const buttonEliminar = document.querySelector('#deletePublication');
 console.log(buttonEliminar);
 console.log(buttonEliminar[0]);
 
-var listButtons = document.getElementsByClassName("buttonNewPublication2 deletePublication");
-for (let item of listButtons) {
-    console.log(item);
-}
 
-/*buttonEliminar.forEach((btn) => {
-    console.log("hola soy el boton");
-     btn.addEventListener("click", (e) => {
-        
-    })
-});*/
-
-
-    /*const buttonContainer = document.getElementById('buttonCard');
-    const buttonEliminar = document.getElementById('deletePublication');
-    console.log(buttonEliminar);*/
-
-    /*buttonEliminar.addEventListener('click', (e) => {
-        
-        console.log('si escucho');
-    });
-
-
-  buttonEliminar.forEach((btn) =>
-     btn.addEventListener("click", (e) => {
-        eliminar();
-
-     })
-   );*/
-
- 
-
-
+export function eliminar (id){
+    console.log("hola boton delate");
+    /*db.collection("Histories").doc(id).delete().then(() => {
+      console.log("Document successfully deleted!");
+  }).catch((error) => {
+      console.error("Error removing document: ", error);
+  });*/
+  };

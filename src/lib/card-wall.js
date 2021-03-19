@@ -1,3 +1,5 @@
+
+
 export const cardWall = (docRef) =>{
     return`
         <div class='divCard'>
@@ -13,7 +15,7 @@ export const cardWall = (docRef) =>{
             </div>
             <div class='buttonCard' id = 'buttonCard'>
                 <button  class='buttonNewPublication2 editPublication'>Editar</button>
-                <button class='buttonNewPublication2 deletePublication' id='deletePublication' postId='${docRef.date}'>Borrar</button>
+                <button class='buttonNewPublication2 deletePublication' onclick="eliminar()" id="deletePublication${docRef.date}" >Borrar</button>
             </div>
         </div>`};
 

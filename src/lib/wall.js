@@ -1,4 +1,7 @@
+import { eliminar } from '../main.js';
+
 //This is the wall
+
 export const wall = () =>`
     <div class='wall'>
         <div class='headerWall'>

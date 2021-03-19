@@ -131,13 +131,7 @@ export const postContainer = document.getElementById('tasks-container');
 
     };
 
+    //  Obtener el id de un post
 
 
 
-export function eliminar (id){
-  db.collection("Histories").doc(id).delete().then(() => {
-    console.log("Document successfully deleted!");
-}).catch((error) => {
-    console.error("Error removing document: ", error);
-});
-};
