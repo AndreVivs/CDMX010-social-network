@@ -1,5 +1,5 @@
 import { onNavigate } from './routers.js';
-import { register, loginGoogle, accessJalo, savePost, getData} from './firebase.js';
+import { register, loginGoogle, accessJalo, savePost, getData, eliminar} from './firebase.js';
 import { cardWall } from './lib/card-wall.js';
 
 
@@ -78,7 +78,7 @@ buttonHistories.addEventListener('click', (e) => {
         title : title.value,
         description : description.value,
         date: Date.now(),
-        DocumentId: 'docRef.id',
+        isLike: false,
     };
     if (!title.value.trim() || !description.value.trim()) {
         alert('Escribe algo antes de publicar!');
@@ -86,27 +86,22 @@ buttonHistories.addEventListener('click', (e) => {
     }
 
     savePost(post);
-    /*.then((docRef) => {
-        //console.log('Document ID: ', docRef.id)
-        title.value = "";
-        description.value = "";
-    })
-    .catch((error) => console.log(error));*/
+
 });
 
 getData();
 
 
-const buttonEliminar = document.querySelector('#deletePublication');
-console.log(buttonEliminar);
-console.log(buttonEliminar[0]);
+  let printCards = document.querySelector('#tasks-container');
+    printCards.addEventListener('click', (e) => {
+    //lógica de borrar.
+    if ( e.target.classList.contains('deletePublication')) {
+        const valueId = e.target.getAttribute('docid')
+        console.log('si escucha el boton')
+        console.log(valueId)
+        eliminar(valueId);
+       
+    }; 
+});
 
 
-export function eliminar (id){
-    console.log("hola boton delate");
-    /*db.collection("Histories").doc(id).delete().then(() => {
-      console.log("Document successfully deleted!");
-  }).catch((error) => {
-      console.error("Error removing document: ", error);
-  });*/
-  };

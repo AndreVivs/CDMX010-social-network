@@ -102,28 +102,25 @@ export const savePost = (post) => db.collection('Histories')
      description: post.description,
      date: Date.now()
     })
-    .then((docRef) => {
+  .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
   })
   .catch((error) => {
       console.error("Error adding document: ", error);
   });
   
-  
-  
-
-
 
 export const postContainer = document.getElementById('tasks-container');
+
 
     export const getData = () => {
       db.collection("Histories").orderBy("date", "desc")
         .onSnapshot((querySnapshot) =>{
           postContainer.innerHTML = "";
           querySnapshot.forEach((doc) =>{
-            const task = doc.data();
-            postContainer.innerHTML += cardWall(task);
-            console.log(task);
+            const post = doc.data();
+            postContainer.innerHTML += cardWall(post, doc.id);
+            console.log(post);
 
           });
 
@@ -131,7 +128,18 @@ export const postContainer = document.getElementById('tasks-container');
 
     };
 
-    //  Obtener el id de un post
+
+
+   export function eliminar (id){
+      db.collection("Histories").doc(id).delete().then(() => {
+        console.log(id)
+        console.log("Document successfully deleted!");
+    }).catch((error) => {
+        console.error("Error removing document: ", error);
+    });
+  };
+  
+
 
 
 

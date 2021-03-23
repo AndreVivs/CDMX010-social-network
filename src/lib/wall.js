@@ -1,4 +1,4 @@
-import { eliminar } from '../main.js';
+//import { eliminar } from '../main.js';
 
 //This is the wall
 
