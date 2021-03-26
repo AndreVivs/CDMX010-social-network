@@ -128,8 +128,6 @@ export const postContainer = document.getElementById('tasks-container');
 
     };
 
-
-
    export function eliminar (id){
       db.collection("Histories").doc(id).delete().then(() => {
         console.log(id)
@@ -138,6 +136,57 @@ export const postContainer = document.getElementById('tasks-container');
         console.error("Error removing document: ", error);
     });
   };
+
+
+//videoinstruccions and stuff
+
+
+
+export function editar (id, title, description) {
+  
+
+  document.getElementById('task-InputNewPublication').value = title;
+  document.getElementById('task-contentPublication').value = description;
+  
+  const editButton = document.createElement('button');
+  const spaceToPrint = document.getElementById('buttons-group');
+
+  editButton.textContent = 'Editar Publicación';
+  editButton.classList.add('buttonNewPublication');
+  spaceToPrint.appendChild(editButton);
+
+
+
+  //const editButton = document.getElementById('save')
+  //editButton.innerHTML = 'Editar';
+
+
+  editButton.onclick = function (){
+     event.preventDefault();
+      
+      const postToUpDate = db.collection("Histories").doc(id);
+
+      const titleU = document.getElementById('task-InputNewPublication').value;
+      const descriptionU = document.getElementById('task-contentPublication').value;
+      
+      return postToUpDate.update({
+          title : titleU,
+          description : descriptionU,
+      })
+      .then(() => {
+          console.log("Document successfully updated!");
+          //editButton.innerHTML = 'Publicar';
+          document.getElementById('task-InputNewPublication').value = "";
+          document.getElementById('task-contentPublication').value = "";
+          //aqui debería ir el remove boton
+      })
+      .catch((error) => {
+          // The document probably doesn't exist.
+          console.error("Error updating document: ", error);
+      });
+        
+    }
+};
   
 
 

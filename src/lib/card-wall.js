@@ -13,7 +13,7 @@ export const cardWall = (post, docId) =>{
                 <button id='desenviaja'></button> 
             </div>
             <div class='buttonCard' id = 'buttonCard'>
-                <button  class='buttonNewPublication2 editPublication'>Editar</button>
+                <button class='buttonNewPublication2 editPublication' docId='${docId}' titleId='${post.title}'descriptionId='${post.description}'>Editar</button>
                 <button class='buttonNewPublication2 deletePublication' docId='${docId}'>Borrar</button>
             </div>
         </div>`};

@@ -1,5 +1,5 @@
 import { onNavigate } from './routers.js';
-import { register, loginGoogle, accessJalo, savePost, getData, eliminar} from './firebase.js';
+import { register, loginGoogle, accessJalo, savePost, getData, eliminar, editar} from './firebase.js';
 import { cardWall } from './lib/card-wall.js';
 
 
@@ -65,7 +65,7 @@ window.addEventListener('DOMContentLoaded', () => buttonGoogleInput());
 
 
 
-//Publicated porst in Wall
+//Publicated post in Wall
 const buttonHistories = document.getElementById('save');
 const title = document.getElementById('task-InputNewPublication');
 const description = document.getElementById('task-contentPublication');
@@ -97,6 +97,7 @@ getData();
     //lógica de borrar.
     if ( e.target.classList.contains('deletePublication')) {
         const valueId = e.target.getAttribute('docid')
+        console.log(e)
         console.log('si escucha el boton')
         console.log(valueId)
         eliminar(valueId);
@@ -104,4 +105,23 @@ getData();
     }; 
 });
 
+//stuff del boton de editar, sirve ya
+
+    printCards.addEventListener('click', (e) => {
+    //lógica de editar.
+    if ( e.target.classList.contains('editPublication')) {
+        const valueId = e.target.getAttribute('docid')
+        const valueTitle = e.target.getAttribute('titleid')
+        const valueDescription = e.target.getAttribute('descriptionid')
+        //console.log(e)
+        //console.log(valueId, ",doc id del documento a editar")
+        //console.log(valueTitle, ",doc Title del documento a editar")
+        //console.log(valueDescription, ",doc description del documento a editar")
+        console.log('si escucha el boton de editar yass')
+
+        editar(valueId, valueTitle, valueDescription);
+       
+       
+    }; 
+});
 

@@ -1,6 +1,3 @@
-//import { eliminar } from '../main.js';
-
-//This is the wall
 
 export const wall = () =>`
     <div class='wall'>
@@ -17,7 +14,9 @@ export const wall = () =>`
                     <div class='form-group'>
                         <textarea class="toPublicated" id='task-contentPublication' rows="4" cols="26"></textarea>
                     </div>
+                    <div class='buttons-group' id='buttons-group'> 
                     <button type='submit' class='buttonNewPublication' id='save' >Publicar</button>
+                    </div> 
                 </div>
             </form>
         </div>
