@@ -27,36 +27,36 @@ body {
     }
     
     .logoHome {
-        padding: 29% 20%;
+        padding: 29% 29%;
         margin: 0%;
         display: flex;
         justify-content: center;
-        width: 168px;
-        height: 115px;
+        width: 150px;
+        height: 150px;
     }
     
     .containerFlexCenter {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 0% 5% 26% 24%;
-        margin: 0% 5% 0% 0%;
+        padding: 0% 42% 0% 33%;
+        margin: 11% 0% 0% 0%;
     }
     
     
     button.buttonHome {
         background: #FF723F;
-        border-radius: 24%;
+        border-radius: 7%;
         width: 119px;
         height: 36px;
         color: #EAEAEA;
         display: flex;
         justify-content: center;
-        padding: 5%;
+        padding: 10%;
         font-family: 'Comfortaa', cursive;
         font-size: medium;
         border: thin;
-        margin: 4% 3%;  
+        margin: 13% 3%;  
     }
     
     .theLogin {
@@ -69,7 +69,7 @@ body {
     }
     
     .logoHomeLogin {
-        padding: 12% 21%;
+        padding: 29% 29%;
         margin: 0%;
         display: flex;
         justify-content: center;
@@ -82,14 +82,14 @@ body {
         display: flex;
         justify-content: center;
         color: #eaeaea;
-        font-size: large;
-        padding: 0% 13% 0% 0%;
+        font-size: medium;
+        padding: -1% 20% 0% 26%;
     }
     
     .formLogin {
         display: flex;
         flex-direction: column;
-        margin: 0%;
+        margin: 8%;
         width: 73%;
         padding: 5% 0% 0% 6%;
     }
@@ -99,7 +99,16 @@ body {
         display: flex;
         justify-content: center;
         color: #eaeaea;
-        padding: 0% 11% 0% 0%;
+        padding: 0% 0% 0% 0%;
+    }
+
+    p {
+        margin: 0%;
+        display: flex;
+        justify-content: center;
+        color: #1d1a1a;
+        padding: 5% 4% 5% 1%;
+        font-size: medium;
     }
     
     .containerFlexCenter2 {
@@ -112,7 +121,7 @@ body {
     .formLoginInputs {
         display: flex;
         text-align: center;
-        border-radius: 20%;
+        border-radius: 5px;
         border: #5A1846;
         background: #5A1846;
         color: #eaeaea;
@@ -124,7 +133,7 @@ body {
     
     button.buttonLogin {
         background: #FF723F;
-        border-radius: 24%;
+        border-radius: 5px;
         width: 122px;
         height: 34px;
         color: #EAEAEA;
@@ -134,7 +143,7 @@ body {
         font-family: 'Comfortaa', cursive;
         font-size: medium;
         border: thin;
-        margin: 0% 25%;
+        margin: 10% 25%; 
     }
     
     .home-login {
@@ -150,14 +159,22 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 0% 4% 0% 1%;
+        padding: 0% 0% 0% 10%;
         margin: 0% 8% 0% 0%;
+    }
+
+    .containergoogle{
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0% 0% 0% 10%;
+    margin: 0% 8% 0% 0%;
     }
     
     .styleFormLoginHome {
         display: flex;
         text-align: center;
-        border-radius: 20%;
+        border-radius: 5px;
         border: #5A1846;
         background: #5A1846;
         color: #eaeaea;
@@ -170,7 +187,7 @@ body {
     
     button.buttonsLogin {
         background: #FF723F;
-        border-radius: 24%;
+        border-radius: 5px;
         width: 122px;
         height: 34px;
         color: #EAEAEA;
@@ -180,11 +197,11 @@ body {
         font-family: 'Comfortaa', cursive;
         font-size: medium;
         border: thin;
-        margin: 0% 23%;
+        margin: 5% 26%;
     }
     
     .logoLogin {
-        padding: 22% 20%;
+        padding: 20% 26%;
         margin: 0%;
         display: flex;
         justify-content: center;
@@ -197,7 +214,7 @@ body {
         padding: 6% 16%;
         border-radius: 12%;
         border: medium;
-        margin: 6% 0% 6% 27%;
+        margin: 8% 0% 8% 31%;
         display: flex;
         justify-content: center;
         width: 54px;
@@ -219,9 +236,25 @@ body {
         background: #5A1846;
         margin: 0%;
         width: 360px;
-        height: 73px;
+        height: 82px;
+    }
+
+    .spaceForImagesWall{
+        display: flex;
+        justify-content: space-around;
+        background: ##98606000;
+        margin: 0%;
+        width: 494px;
+        height: 56px;
+        margin: 3% 0% 0% 2%;
     }
     
+    #from-groupInput{
+        justify-content: center;
+    }
+
+
+
     .createPublication {
         display: flex;
         justify-content: center;
@@ -252,9 +285,11 @@ body {
         display: flex;
         flex-direction: column;
         border: none;
-        padding: 2%;
+        padding: 4%;
         margin: 0% 34% 0% 0%;
         font-family: 'Comfortaa', cursive;
+        outline-style: auto;
+        outline-color: #5A1846;
     }
     
     .divCard {
@@ -280,7 +315,7 @@ body {
         display: flex;
         justify-content: end;
         color: #5A1846;
-        padding: 0% 55% 0% 0%;
+        padding: 2% 55% 0% 1%;
     }
     
     .avatarsCard {
@@ -313,13 +348,14 @@ body {
         justify-content: center;
         background-image: url(assets/avatar-publication.png);
         padding: 15% 0% 0% 0%;
-        margin: 0% 100% 0% -21%;
-        width: 16%;
+        margin: 0% 100% 1% -19%;
+        width: 15%;
+        border: none;
     }
     
     
     button#desenviaja {
-        display: flex;
+        display: none;
         justify-content: space-evenly;
         padding: 13% 13% 0% 0%;
         margin: 0% 6% 0% -20%;
@@ -330,7 +366,7 @@ body {
     
     button.buttonNewPublication2 {
         background: #FF723F;
-        border-radius: 24%;
+        border-radius: 5px;
         width: 91%;
         height: 0%;
         color: #EAEAEA;
@@ -338,7 +374,7 @@ body {
         justify-content: center;
         padding: 8% 20% 9% 25%;
         font-family: 'Comfortaa', cursive;
-        font-size: medium;
+        font-size: small;
         border: thin;
         margin: 2% 22% 8% 0%;
     }
@@ -353,8 +389,8 @@ body {
     #task-InputNewPublication {
         display: flex;
         justify-content: center;
-        width: 84%;
-        height: 34%;
+        width: 89%;
+        height: 53%;
         font-family: 'Comfortaa', cursive;
     }
     
@@ -366,30 +402,32 @@ body {
     .toPublicated {
         display: flex;
         justify-content: center;
-        padding: 7%;
-        margin: 1%;
+        padding: 3%;
+        margin: 2%;
+        width: 89%;
+        height: 107%;
         font-family: 'Comfortaa', cursive;
     }
     
     
     button.buttonNewPublication {
         background: #FF723F;
-        border-radius: 24%;
+        border-radius: 5px;
         width: 122px;
         height: 34px;
         color: #EAEAEA;
         display: flex;
         justify-content: center;
-        padding: 2% 0% 0% 1%;
+        padding: 4% 3% 2% 3%;
         font-family: 'Comfortaa', cursive;
-        font-size: medium;
+        font-size: small;
         border: thin;
-        margin: 3% 34%;
+        margin: 15% 15% 4% 52%;
     }
 
     button.buttonNewEditPublication {
         background: #FF723F;
-        border-radius: 24%;
+        border-radius: 5px;
         width: 122px;
         height: 34px;
         color: #EAEAEA;
@@ -453,428 +491,3 @@ body {
     }
 };
 
-
-
- /* @media only screen and (max-width: 1440px) { 
-    div.home {
-        background: #890E40;
-        display: flex;
-        flex-direction: column;
-        width: 1440px;
-        min-height: 1024px;
-        font-family: 'Comfortaa', cursive;
-    }
-    
-    .logoHome {
-        padding: 29% 20%;
-        margin: 0%;
-        display: flex;
-        justify-content: center;
-        width: 168px;
-        height: 115px;
-    }
-    #logoHome {
-        width: 28%;
-        margin: 0%;
-        padding: 3% 0% 2% 33%;
-    }
-    
-    
-    .containerFlexCenter {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 1% 4% 0% 41%;
-        margin: 1% 4% 0% 1%;
-    }
-    
-    
-    button.buttonHome {
-        background: #FF723F;
-        border-radius: 24%;
-        width: 119px;
-        height: 36px;
-        color: #EAEAEA;
-        display: flex;
-        justify-content: center;
-        padding: 5%;
-        font-family: 'Comfortaa', cursive;
-        font-size: medium;
-        border: thin;
-        margin: 4% 3%;  
-    }
-    
-    .theLogin {
-        background-image: url("assets/login.png");
-        display: flex;
-        flex-direction: column;
-        width: 1440px;
-        min-height: 1024px;
-        font-family: 'Comfortaa', cursive;
-    }
-    
-    .logoHomeLogin {
-        padding: 12% 21%;
-        margin: 0%;
-        display: flex;
-        justify-content: center;
-        width: 42%;
-        height: 115px;
-    }
-    
-    h2 {
-        margin: 0%;
-        display: flex;
-        justify-content: center;
-        color: #eaeaea;
-        font-size: large;
-        padding: 0% 13% 0% 0%;
-    }
-    
-    .formLogin {
-        display: flex;
-        flex-direction: column;
-        margin: 0%;
-        width: 73%;
-        padding: 5% 0% 0% 6%;
-    }
-    
-    h3 {
-        margin: 0%;
-        display: flex;
-        justify-content: center;
-        color: #eaeaea;
-        padding: 0% 11% 0% 0%;
-    }
-    
-    .containerFlexCenter2 {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        padding: 3%;
-    }
-    
-    .formLoginInputs {
-        display: flex;
-        text-align: center;
-        border-radius: 20%;
-        border: #5A1846;
-        background: #5A1846;
-        color: #eaeaea;
-        font-family: 'Comfortaa', cursive;
-        font-size: medium;
-        margin: 2% 7%;
-    }
-    
-    
-    button.buttonLogin {
-        background: #FF723F;
-        border-radius: 24%;
-        width: 122px;
-        height: 34px;
-        color: #EAEAEA;
-        display: flex;
-        justify-content: center;
-        padding: 3% 0% 0% 1%;
-        font-family: 'Comfortaa', cursive;
-        font-size: medium;
-        border: thin;
-        margin: 0% 25%;
-    }
-    
-    .home-login {
-        background-image: url("assets/login.png");
-        display: flex;
-        flex-direction: column;
-        width: 1440px;
-        min-height: 1024px;
-        font-family: 'Comfortaa', cursive;
-    }
-    
-    .containerFlexCenter3 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0% 4% 0% 1%;
-        margin: 0% 8% 0% 0%;
-    }
-    
-    .styleFormLoginHome {
-        display: flex;
-        text-align: center;
-        border-radius: 20%;
-        border: #5A1846;
-        background: #5A1846;
-        color: #eaeaea;
-        font-family: 'Comfortaa', cursive;
-        font-size: medium;
-        margin: 0% 8% 2% 2%;
-        padding: 1% 1% 0% 0%;
-    }
-    
-    
-    button.buttonsLogin {
-        background: #FF723F;
-        border-radius: 24%;
-        width: 122px;
-        height: 34px;
-        color: #EAEAEA;
-        display: flex;
-        justify-content: center;
-        padding: 3% 0% 0% 1%;
-        font-family: 'Comfortaa', cursive;
-        font-size: medium;
-        border: thin;
-        margin: 0% 23%;
-    }
-    
-    .logoLogin {
-        padding: 22% 20%;
-        margin: 0%;
-        display: flex;
-        justify-content: center;
-        width: 168px;
-        height: 115px;
-    }
-    
-    button#buttonGoogle {
-        background-image: url(assets/google-boton.png);
-        padding: 6% 16%;
-        border-radius: 12%;
-        border: medium;
-        margin: 6% 0% 6% 27%;
-        display: flex;
-        justify-content: center;
-        width: 54px;
-        height: 40px;
-    }
-    
-    .wall {
-        background:  #EAEAEA;
-        display: flex;
-        flex-direction: column;
-        width: 1440px;
-        min-height: 1024px;
-        font-family: 'Comfortaa', cursive;
-    }
-    
-    .headerWall {
-        display: flex;
-        justify-content: space-around;
-        background: #5A1846;
-        margin: 0%;
-        width: 360px;
-        height: 73px;
-    }
-    
-    .createPublication {
-        display: flex;
-        justify-content: center;
-        width: 135%;
-        height: 100%;
-        margin: 0%;
-        padding: 0% 3%;
-    }
-    
-    .containerFlexCenter4 {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        width: 135%;
-        padding: 5%;
-        margin: 0%;
-    }
-    
-    .createPublication2 {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        margin: 0%;
-        padding: 0% 36% 0% 19%;
-    }
-    
-    .card {
-        display: flex;
-        flex-direction: column;
-        border: ridge;
-        padding: 2%;
-        margin: 0% 34% 0% 0%;
-        font-family: 'Comfortaa', cursive;
-    }
-    
-    .divCard {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        margin: 0% 0% 0% 10%;
-        padding: 2% 7%;
-    }
-    
-    .textCard {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        border: ridge;
-        padding: 9% 0% 0% 6%;
-        margin: 0% -82% 2% -52%;
-        font-family: 'Comfortaa', cursive;
-    }
-    
-    h3.h3Publication {
-        margin: 0%;
-        display: flex;
-        justify-content: end;
-        color: #5A1846;
-        padding: 0% 55% 0% 0%;
-    }
-    
-    .avatarsCard {
-        display: flex;
-        justify-content: flex-start;
-        margin: 0%;
-        width: 266%;
-        height: 0%;
-    }
-    
-    .enviajaCard {
-        display: flex;
-        justify-content: flex-start;
-        width: 265%;
-        padding: 0% 0%;
-        margin: 0%;
-    }
-    
-    .buttonCard {
-        display: flex;
-        flex-direction: row;
-        padding: 2%;
-        margin: 0% 34% 0% 0%;
-        font-family: 'Comfortaa', cursive;
-    }
-    
-    
-    button#avatarPublication {
-        display: flex;
-        justify-content: center;
-        background-image: url(assets/avatar-publication.png);
-        padding: 15% 0% 0% 0%;
-        margin: 0% 100% 0% -21%;
-        width: 16%;
-    }
-    
-    
-    button#desenviaja {
-        display: flex;
-        justify-content: space-evenly;
-        padding: 13% 13% 0% 0%;
-        margin: 0% 6% 0% -20%;
-        background-image: url(assets/desaviona.png);
-        width: 0%;
-    }
-    
-    
-    button.buttonNewPublication2 {
-        background: #FF723F;
-        border-radius: 24%;
-        width: 91%;
-        height: 0%;
-        color: #EAEAEA;
-        display: flex;
-        justify-content: center;
-        padding: 8% 20% 9% 25%;
-        font-family: 'Comfortaa', cursive;
-        font-size: medium;
-        border: thin;
-        margin: 2% 22% 8% 0%;
-    }
-    
-    #form-groupInput {
-        display: flex;
-        justify-content: center;
-        margin: 0%;
-        width: 100%;
-    }
-    
-    #task-InputNewPublication {
-        display: flex;
-        justify-content: center;
-        width: 84%;
-        height: 34%;
-        font-family: 'Comfortaa', cursive;
-    }
-    
-    .form-group {
-        display: flex;
-        justify-content: center;
-    }
-    
-    .toPublicated {
-        display: flex;
-        justify-content: center;
-        padding: 7%;
-        margin: 1%;
-        font-family: 'Comfortaa', cursive;
-    }
-    
-    
-    button.buttonNewPublication {
-        background: #FF723F;
-        border-radius: 24%;
-        width: 122px;
-        height: 34px;
-        color: #EAEAEA;
-        display: flex;
-        justify-content: center;
-        padding: 2% 0% 0% 1%;
-        font-family: 'Comfortaa', cursive;
-        font-size: medium;
-        border: thin;
-        margin: 3% 34%;
-    }
-    
-    .flexCenter5 {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0% 5% 1% 5%;
-        margin: 0% 6% 0% 4%;
-    }
-    
-    .publication {
-        display: flex;
-        flex-direction: column;
-        padding: 1% 4%;
-        margin: 0%;
-    }
-    
-    #avatarPublication {
-        display: flex;
-        justify-content: center;
-        background-image: url(assets/avatar-publication.png);
-        padding: 15% 0% 0% 0%;
-        margin: 0% 81% 0% 0%;
-        width: 16%;
-    }
-    
-    .alreadyPublicated {
-        display: flex;
-        justify-content: center;
-        padding: 7%;
-    }
-    
-    #enviaja {
-        display: flex;
-        justify-content: center;
-        padding: 13% 13% 0% 0%;
-        background-image: url(assets/enaviona.png);
-        width: 0%;
-    }
-    
-    #desenviaja {
-        display: flex;
-        justify-content: center;
-        padding: 13% 13% 0% 0%;
-        background-image: url(assets/desaviona.png);
-        width: 0%;
-    }
-}; */

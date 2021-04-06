@@ -2,13 +2,13 @@ import { onNavigate } from './routers.js';
 import { cardWall } from './lib/card-wall.js';
 
 let firebaseConfig = {
-  apiKey: "AIzaSyAphkTjnCyuMEe9J2BlkLSnRf11LDrRKq8",
-  authDomain: "jaloredsocial.firebaseapp.com",
-  projectId: "jaloredsocial",
-  storageBucket: "jaloredsocial.appspot.com",
-  messagingSenderId: "438968128013",
-  appId: "1:438968128013:web:9d1b47242a6f58c825bb44",
-  measurementId: "G-8FRZGM62BF"
+  apiKey: "AIzaSyD3aAkKByGRk-VIP9Cyl-REmYc6fi02mLc",
+  authDomain: "appjalo.firebaseapp.com",
+  projectId: "appjalo",
+  storageBucket: "appjalo.appspot.com",
+  messagingSenderId: "1014914893734",
+  appId: "1:1014914893734:web:dd26aa6f73aa3f31dc3167",
+  measurementId: "G-HRFRTE48DF"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -42,6 +42,7 @@ export function register (){
   })
     .catch((error) => {
       console.log(error);
+      console.log("nmms");
       let errorMessage = error.message;
       alert(errorMessage, 4000);
     })
@@ -104,6 +105,8 @@ export const savePost = (post) => db.collection('Histories')
     })
   .then((docRef) => {
       console.log("Document written with ID: ", docRef.id);
+      document.getElementById('task-InputNewPublication').value = "";
+      document.getElementById('task-contentPublication').value = "";
   })
   .catch((error) => {
       console.error("Error adding document: ", error);
@@ -140,30 +143,26 @@ export const postContainer = document.getElementById('tasks-container');
 
 //videoinstruccions and stuff
 
-
-
 export function editar (id, title, description) {
   
-
   document.getElementById('task-InputNewPublication').value = title;
   document.getElementById('task-contentPublication').value = description;
-  
+
   const editButton = document.createElement('button');
   const spaceToPrint = document.getElementById('buttons-group');
 
-  editButton.textContent = 'Editar Publicación';
+  editButton.textContent = 'Editar';
   editButton.classList.add('buttonNewPublication');
   spaceToPrint.appendChild(editButton);
-
-
-
+  
   //const editButton = document.getElementById('save')
   //editButton.innerHTML = 'Editar';
 
 
   editButton.onclick = function (){
      event.preventDefault();
-      
+     console.log("hey")
+     
       const postToUpDate = db.collection("Histories").doc(id);
 
       const titleU = document.getElementById('task-InputNewPublication').value;
@@ -179,6 +178,8 @@ export function editar (id, title, description) {
           document.getElementById('task-InputNewPublication').value = "";
           document.getElementById('task-contentPublication').value = "";
           //aqui debería ir el remove boton
+          editButton.textContent = 'Publicar';
+
       })
       .catch((error) => {
           // The document probably doesn't exist.

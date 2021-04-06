@@ -6,7 +6,7 @@ import { cardWall } from './lib/card-wall.js';
 
 //Función para mandar llamar el id que se usa para el evento para ir de home a login.
 const createNewUser = () => {
-    let createUser = document.getElementById('newUser');
+    let createUser = document.getElementById('newUser');//newuser
     createUser.addEventListener('click', (e) => {
         e.preventDefault();
         onNavigate('/login');
@@ -78,7 +78,6 @@ buttonHistories.addEventListener('click', (e) => {
         title : title.value,
         description : description.value,
         date: Date.now(),
-        isLike: false,
     };
     if (!title.value.trim() || !description.value.trim()) {
         alert('Escribe algo antes de publicar!');
@@ -107,6 +106,13 @@ getData();
 
 //stuff del boton de editar, sirve ya
 
+
+function functionEliminateButton() {
+    document.getElementById("save").style.display = "none";
+  }
+
+  
+
     printCards.addEventListener('click', (e) => {
     //lógica de editar.
     if ( e.target.classList.contains('editPublication')) {
@@ -118,6 +124,7 @@ getData();
         //console.log(valueTitle, ",doc Title del documento a editar")
         //console.log(valueDescription, ",doc description del documento a editar")
         console.log('si escucha el boton de editar yass')
+        functionEliminateButton();
 
         editar(valueId, valueTitle, valueDescription);
        
